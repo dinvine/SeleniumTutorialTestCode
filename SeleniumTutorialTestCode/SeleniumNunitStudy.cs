@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using SeleniumTutorialTestCode.PageOBJ;
 using System;
 
@@ -16,6 +17,7 @@ namespace SeleniumTutorialTestCode
         {
             WDriver = new FirefoxDriver();
             WDriver.Url = @"http://www.google.com";
+            
         }
 
         
@@ -24,9 +26,7 @@ namespace SeleniumTutorialTestCode
         {
             GoogleSearch googleSearch = new GoogleSearch(ref WDriver);
             string title = WDriver.Title;
-
-            System.Threading.Thread.Sleep(3000);
-
+            
             Console.WriteLine("Page title is {0}", title);
 
             string pageSource = WDriver.PageSource;
@@ -42,38 +42,29 @@ namespace SeleniumTutorialTestCode
 
             //test Navigate().Back();
             WDriver.Navigate().Back();
-            System.Threading.Thread.Sleep(2000);
             Assert.That(WDriver.Title.Equals("Google"), "test fail due to title does not equal to Google ");
 
 
             //test gmailLink
             googleSearch.gmailLinkTest();
-            System.Threading.Thread.Sleep(2000);
             WDriver.Navigate().Back();
-            System.Threading.Thread.Sleep(2000);
 
 
             //test signInLink
             googleSearch.signInLinkTest();
-            System.Threading.Thread.Sleep(2000);
 
             WDriver.Navigate().Back();
-            System.Threading.Thread.Sleep(2000);
 
             //test picLink
             googleSearch.picLinkTest();
-            System.Threading.Thread.Sleep(2000);
             WDriver.Navigate().Back();
-            System.Threading.Thread.Sleep(2000);
 
             //test Navigate().Forward()
             WDriver.Navigate().Forward();
-            System.Threading.Thread.Sleep(2000);
             Assert.That(WDriver.Title.Equals("Google Images"), "test fail due to title does not equal to Google Images");
 
             //test Navigate().Refresh()
             WDriver.Navigate().Refresh();
-            System.Threading.Thread.Sleep(2000);
             Assert.That(WDriver.Title.Equals("Google Images"), "test fail due to title does not equal to Google Images");
             
 
@@ -83,7 +74,7 @@ namespace SeleniumTutorialTestCode
         [TearDown]
         public void closeBrowser()
         {
-            System.Threading.Thread.Sleep(3000);
+            System.Threading.Thread.Sleep(1000);
             WDriver.Close();
         }
 
