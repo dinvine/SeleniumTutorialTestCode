@@ -16,15 +16,17 @@ namespace SeleniumTutorialTestCode
         public void startBrowser()
         {
             WDriver = new FirefoxDriver();
-            WDriver.Url = @"http://www.google.com";
-            
+            WDriver.Navigate().GoToUrl( @"http://www.google.com");
+            WDriver.Manage().Timeouts().ImplicitWait= TimeSpan.FromSeconds(10); 
+
+
         }
 
         
         [Test]
         public void ChromeHomePageTest()
         {
-            GoogleSearch googleSearch = new GoogleSearch(ref WDriver);
+            GoogleSearch googleSearch = new GoogleSearch(WDriver);
             string title = WDriver.Title;
             
             Console.WriteLine("Page title is {0}", title);

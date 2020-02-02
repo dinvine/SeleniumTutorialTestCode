@@ -8,9 +8,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
         IWebDriver webDriver;
 
         public IWebElement textBoxSearch => webDriver.FindElement(By.Name("q"));
-
-         public IWebElement btnSearch => webDriver.FindElement(By.XPath(@"//*[@id='tsf']/div[2]/div[1]/div[2]/div[2]/div[2]/center/input[1]"));
-
+        
         public IWebElement btnSearch2 => webDriver.FindElement(By.Name("btnK"));
         public IWebElement btnGoodLuck => webDriver.FindElement(By.Name("btnI"));
 
@@ -19,10 +17,9 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public IWebElement picLink => webDriver.FindElement(By.LinkText("Images"));
 
         public IWebElement signInLink => webDriver.FindElement(By.LinkText("Sign in"));
-        public GoogleSearch(ref IWebDriver driver)
+        public GoogleSearch(IWebDriver driver)
         {
             webDriver = driver;
-            driver.Url = @"http://www.google.com";
         }
 
 
