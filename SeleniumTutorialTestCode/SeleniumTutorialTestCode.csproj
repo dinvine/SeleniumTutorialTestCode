@@ -54,7 +54,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\RadioButtons.cs" />
     <Compile Include="PageOBJ\GoogleSearch.cs" />
+    <Compile Include="PageOBJ\PersonalInfomation.cs" />
     <Compile Include="SeleniumNunitStudy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,7 +2,6 @@
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Chrome;
 using SeleniumTutorialTestCode.PageOBJ;
 using System;
 
@@ -16,19 +15,19 @@ namespace SeleniumTutorialTestCode
         public void startBrowser()
         {
             WDriver = new FirefoxDriver();
-            WDriver.Navigate().GoToUrl( @"http://www.google.com");
+            
             WDriver.Manage().Timeouts().ImplicitWait= TimeSpan.FromSeconds(10); 
 
 
         }
 
         
-        [Test]
+        [Test, Order(2), Ignore("")]
         public void ChromeHomePageTest()
         {
+            WDriver.Navigate().GoToUrl(@"http://www.google.com");
             GoogleSearch googleSearch = new GoogleSearch(WDriver);
-            string title = WDriver.Title;
-            
+            string title = WDriver.Title;            
             Console.WriteLine("Page title is {0}", title);
 
             string pageSource = WDriver.PageSource;
@@ -71,6 +70,23 @@ namespace SeleniumTutorialTestCode
             
 
 
+        }
+        
+        [Test, Order(1)]
+        public void PersonalInfomationTest()
+        {
+            WDriver.Navigate().GoToUrl(@"http://106.15.238.71/testpage1.html");
+            PersonalInfomation testPage = new PersonalInfomation(WDriver);
+            testPage.PageLinkClick();
+            testPage.TextBoxInput();
+            testPage.radioButtonsClick();
+            testPage.TextBoxInputDate();
+            testPage.CheckBoxClick();
+            testPage.fileUploadBtnClick();
+            testPage.fileDownloadLinkClick();
+            testPage.DropDownListSelect();
+            testPage.ListBoxSelect();
+            testPage.SubmitClick();
         }
 
         [TearDown]
