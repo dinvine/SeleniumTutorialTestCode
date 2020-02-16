@@ -40,6 +40,9 @@
     <Reference Include="nunit.framework, Version=3.12.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.3.12.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -52,10 +55,17 @@
     <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
     </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Library\Browser.cs" />
     <Compile Include="Library\RadioButtons.cs" />
     <Compile Include="PageOBJ\GoogleSearch.cs" />
+    <Compile Include="PageOBJ\LyraTesting2HomePage.cs" />
+    <Compile Include="PageOBJ\LyraTesting2ListPage.cs" />
+    <Compile Include="PageOBJ\LyricTesting2LoginPage.cs" />
     <Compile Include="PageOBJ\PersonalInfomation.cs" />
     <Compile Include="SeleniumNunitStudy.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

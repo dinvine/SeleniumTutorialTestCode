@@ -1,10 +1,17 @@
 ﻿
 using OpenQA.Selenium;
 using NUnit.Framework;
+using OpenQA.Selenium.Support.UI;
+using System;
+/// <summary>
+/// google search page test 
+/// click and check title
+/// </summary>
 namespace SeleniumTutorialTestCode.PageOBJ
 {
-    class GoogleSearch
+    public class GoogleSearch
     {
+        
         IWebDriver webDriver;
 
         public IWebElement textBoxSearch => webDriver.FindElement(By.Name("q"));
@@ -27,9 +34,9 @@ namespace SeleniumTutorialTestCode.PageOBJ
         {
             textBoxSearch.Clear();
             textBoxSearch.SendKeys(searchTxt);
-            System.Threading.Thread.Sleep(1000);
-            btnSearch2.Click();                  
-          //  System.Threading.Thread.Sleep(1000);
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("btnK")));
+            btnSearch2.Click();
             Assert.That(webDriver.Title.Contains("Selenium"), "test fail due to title does not contain Selenium");
 
         }

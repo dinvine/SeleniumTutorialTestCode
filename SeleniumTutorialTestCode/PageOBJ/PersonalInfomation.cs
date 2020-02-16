@@ -7,10 +7,12 @@ using OpenQA.Selenium.Interactions;
 using System.IO;
 using System;
 using System.Text;
-
+/// <summary>
+/// http://106.15.238.71/testpage1.html
+/// </summary>
 namespace SeleniumTutorialTestCode.PageOBJ
 {
-    class PersonalInfomation
+   public class PersonalInfomation
     {
         public IWebDriver webDriver;
 
@@ -135,6 +137,8 @@ namespace SeleniumTutorialTestCode.PageOBJ
             hybridFrameworkLink.Click();
             webDriver.Navigate().Back();
             fileDownLoadLink.Click();
+           // webDriver.SwitchTo().Alert();
+
 //            webDriver.Navigate().Back();
         }
 
@@ -160,12 +164,12 @@ namespace SeleniumTutorialTestCode.PageOBJ
 
         public void ListBoxSelect()
         {
-            Actions builder = new Actions(webDriver);
-            builder.KeyDown(Keys.LeftControl);
-            builder.Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Switch Commands']")));
-            builder.Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Wait Commands']")));
-            builder.KeyUp(Keys.LeftControl);
-
+           // Actions builder = new Actions(webDriver);
+            
+          //  builder.KeyDown(Keys.LeftControl).Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Switch Commands']"))).Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Wait Commands']"))).KeyUp(Keys.LeftControl);
+            var aa = new SelectElement(seleniumcmdITL);
+            aa.SelectByIndex(1);
+            aa.SelectByIndex(2);
         }
 
         public void SubmitClick()

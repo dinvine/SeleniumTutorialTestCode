@@ -6,6 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// get and set values for RadioButtons
+/// </summary>
 namespace SeleniumTutorialTestCode.Library
 {
     class RadioButtons
