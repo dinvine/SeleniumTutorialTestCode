@@ -13,8 +13,8 @@ namespace SeleniumTutorialTestCode.PageOBJ
 
         public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
 
-        //public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("btn btn-primary btn-lg btn-block js-btn-login"));
-        public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
+        public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
+       // public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
        
 
         //    public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
@@ -53,7 +53,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public void btnLoginClick()
         {
             WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button")));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("js-btn-login")));
             btnLogin.Click();
         }
 

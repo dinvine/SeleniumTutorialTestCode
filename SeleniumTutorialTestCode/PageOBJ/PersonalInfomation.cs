@@ -7,6 +7,7 @@ using OpenQA.Selenium.Interactions;
 using System.IO;
 using System;
 using System.Text;
+using System.Collections.Generic;
 /// <summary>
 /// http://106.15.238.71/testpage1.html
 /// </summary>
@@ -14,6 +15,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
 {
    public class PersonalInfomation
     {
+        public Browser browser;
         public IWebDriver webDriver;
 
         public IWebElement signInLink => webDriver.FindElement(By.LinkText("Partial Link Test"));
@@ -21,18 +23,18 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public IWebElement firstNmTextBx => webDriver.FindElement(By.Name("firstname"));
         public IWebElement lastNmTextBx => webDriver.FindElement(By.Name("lastname"));
 
-        ReadOnlyCollection<IWebElement> sexRadioBx => webDriver.FindElements(By.Name("sex"));
-        RadioButtons sexRadioButtons;
+        IList <IWebElement> sexRadioBx => webDriver.FindElements(By.Name("sex"));
+        //RadioButtons sexRadioButtons;
 
 
-        ReadOnlyCollection<IWebElement> experienceRadioBx => webDriver.FindElements(By.Name("exp"));
-        RadioButtons experienceRadioButtons;
+        IList <IWebElement> experienceRadioBx => webDriver.FindElements(By.Name("exp"));
+        //RadioButtons experienceRadioButtons;
 
         public IWebElement dateTxtbox => webDriver.FindElement(By.Id("datepicker"));
 
 
-        ReadOnlyCollection<IWebElement> professionCHKBox => webDriver.FindElements(By.Name("profession"));
-        RadioButtons professionCheckButtons;
+        IList <IWebElement> professionCHKBox => webDriver.FindElements(By.Name("profession"));
+       // RadioButtons professionCheckButtons;
 
 
         public IWebElement photoFileBtn => webDriver.FindElement(By.Id("photo"));
@@ -40,31 +42,22 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public IWebElement hybridFrameworkLink => webDriver.FindElement(By.LinkText("Selenium Automation Hybrid Framework"));
         public IWebElement fileDownLoadLink => webDriver.FindElement(By.LinkText("Test File to Download"));
 
-        ReadOnlyCollection<IWebElement> amtoolChxbox => webDriver.FindElements(By.Name("tool"));
-        RadioButtons amtoolCheckButtons;
+        IList <IWebElement> amtoolChxbox => webDriver.FindElements(By.Name("tool"));
+       // RadioButtons amtoolCheckButtons;
 
         public IWebElement continentsDDL => webDriver.FindElement(By.Id("continents"));
-
-
-
-
 
         public IWebElement seleniumcmdITL => webDriver.FindElement(By.Id("selenium_commands"));
 
         public IWebElement submitBtn => webDriver.FindElement(By.Id("submit"));
 
-        public PersonalInfomation(IWebDriver driver)
+        public PersonalInfomation(BrowserType browserType = BrowserType.Firefox, string URL = "http://106.15.238.71/testpage1.html")
         {
-            webDriver = driver;
-
- //           sexRadioButtons = new RadioButtons(driver, sexRadioBx);
-//            experienceRadioButtons = new RadioButtons(driver, experienceRadioBx);
-//            professionCheckButtons = new RadioButtons(driver, professionCHKBox);
-//            amtoolCheckButtons= new RadioButtons(driver, amtoolChxbox);
-
+            browser = new Browser(browserType, URL);
+            webDriver = browser.GetDriver();
         }
 
-        public void PageLinkClick()
+        public void LinkClick()
         {
             signInLink.Click();
             webDriver.Navigate().Back();
@@ -72,20 +65,49 @@ namespace SeleniumTutorialTestCode.PageOBJ
             webDriver.Navigate().Back();
         }
 
-        public void TextBoxInput()
+        public void NameInput()
         {
             firstNmTextBx.SendKeys("Trump");
             lastNmTextBx.SendKeys("Donald");
         }
 
-        public void radioButtonsClick()
+        public void SexSet(string sexStr="Male")
         {
-            sexRadioButtons = new RadioButtons(webDriver, sexRadioBx);
-            experienceRadioButtons = new RadioButtons(webDriver, experienceRadioBx);
-            sexRadioButtons.SetButtonSelected("Male");
-            experienceRadioButtons.SetButtonSelected("5");
-
+            foreach(var element in sexRadioBx)
+            {
+                if (element.GetAttribute("value") == sexStr)
+                    element.Click();
+            }
         }
+
+        public void ExperienceSet(string expStr = "7")
+        {
+            foreach (var element in experienceRadioBx)
+            {
+                string value = element.GetAttribute("value");
+                if (value == expStr)
+                    element.Click();
+            }
+        }
+
+        public void ProfessionSet(string[] profGroup)
+        {
+            //"Manual Tester"  "Automation Tester"
+            foreach (var element in professionCHKBox)
+                foreach( string instr in profGroup)
+                    if (instr == element.GetAttribute("value").ToString())
+                        element.Click();
+        }
+
+        public void AMToolSet(string[] toolGroup)
+        {
+            // "Selenium IDE"   "Selenium Webdriver"
+            foreach (var element in amtoolChxbox)
+                foreach (string instr in toolGroup)
+                    if (instr == element.GetAttribute("value").ToString())
+                        element.Click();
+        }
+
 
         public void TextBoxInputDate()
         {
@@ -94,8 +116,12 @@ namespace SeleniumTutorialTestCode.PageOBJ
 
         public void fileUploadBtnClick()
         {
-            string fileName = @"D:\UploadFileTest.txt";
+            CreateFile(@"D:\UploadFileTest.txt");
+            photoFileBtn.SendKeys(@"D:\UploadFileTest.txt");
+        }
 
+        public void CreateFile(string fileName)
+        {
             try
             {
                 // Check if file already exists. If yes, delete it.     
@@ -127,9 +153,6 @@ namespace SeleniumTutorialTestCode.PageOBJ
             {
                 Console.WriteLine(Ex.ToString());
             }
-
-            photoFileBtn.SendKeys(@"D:\UploadFileTest.txt");
-//            photoFileBtn.Click();
         }
 
         public void fileDownloadLinkClick()
@@ -142,34 +165,31 @@ namespace SeleniumTutorialTestCode.PageOBJ
 //            webDriver.Navigate().Back();
         }
 
+         
 
-        public void CheckBoxClick()
+        public void DropDownListSelect(string selectStr="Africa")
         {
-            professionCheckButtons = new RadioButtons(webDriver, professionCHKBox);
-            amtoolCheckButtons= new RadioButtons(webDriver, amtoolChxbox);
-
-            professionCheckButtons.SetButtonSelected("Manual Tester");
-            professionCheckButtons.SetButtonSelected("Automation Tester");
-
-            amtoolCheckButtons.SetButtonSelected("Selenium IDE");
-            amtoolCheckButtons.SetButtonSelected("Selenium Webdriver");          
-
+            SelectElement selectElement = new SelectElement(continentsDDL);
+            selectElement.SelectByText(selectStr);
+            /*
+            foreach(var elem in selectElement.Options)
+            {
+                if (elem.Text == selectStr)
+                {
+                    selectElement.SelectByText(selectStr);
+                    break;
+                }
+                    
+            }
+            */
         }
 
-        public void DropDownListSelect()
+        public void ListBoxSelect(string[] txtGroup)
         {
-            continentsDDL.Click();
-            continentsDDL.FindElement(By.XPath("//option[. = 'Australia']")).Click();
-        }
+            SelectElement selectElement = new SelectElement(seleniumcmdITL);
+            foreach (string str in txtGroup)
+                selectElement.SelectByText(str);
 
-        public void ListBoxSelect()
-        {
-           // Actions builder = new Actions(webDriver);
-            
-          //  builder.KeyDown(Keys.LeftControl).Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Switch Commands']"))).Click(seleniumcmdITL.FindElement(By.XPath("//option[. = 'Wait Commands']"))).KeyUp(Keys.LeftControl);
-            var aa = new SelectElement(seleniumcmdITL);
-            aa.SelectByIndex(1);
-            aa.SelectByIndex(2);
         }
 
         public void SubmitClick()
