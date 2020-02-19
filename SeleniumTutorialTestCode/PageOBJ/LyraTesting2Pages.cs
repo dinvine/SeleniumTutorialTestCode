@@ -20,5 +20,18 @@ namespace SeleniumTutorialTestCode.PageOBJ
             loginPage = new LyricTesting2LoginPage(browser.GetDriver());
             listPage = new LyraTesting2ListPage(browser.GetDriver());
         }
+
+        public LyraTesting2Pages(Browser br)
+        {
+            browser = br;
+            homepage = new LyraTesting2HomePage(br.GetDriver());
+            loginPage = new LyricTesting2LoginPage(br.GetDriver());
+            listPage = new LyraTesting2ListPage(br.GetDriver());
+        }
+
+        public void GotoHomePage()
+        {
+            browser.GoToURL("http://lyratesting2.co.nz/");
+        }
     }
 }

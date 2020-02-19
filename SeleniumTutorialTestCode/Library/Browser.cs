@@ -33,6 +33,20 @@ namespace SeleniumTutorialTestCode
             driver.Navigate().GoToUrl(URL);
         }
 
+        public Browser(BrowserType browserType)
+        {
+            switch (browserType)
+            {
+                case BrowserType.Chrome:
+                    driver = new ChromeDriver();
+                    break;
+                case BrowserType.Firefox:
+                    driver = new FirefoxDriver();
+                    break;
+            }
+        }
+
+
         public string GetTitle()
         {
             return driver.Title;

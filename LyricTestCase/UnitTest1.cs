@@ -37,7 +37,7 @@ namespace LyricTestCase
         /// test http://106.15.238.71/testpage1.html
         /// test the click of linktext, ratiobutton, checkbox, fileupload, filedownload, dropdownlist, listbox
         /// </summary>
-        [Test, Order(3)]
+        [Test, Order(2)]
         public void PersonalInfomationTest()
         {
             PersonalInfomation testPage = new PersonalInfomation();
@@ -61,7 +61,7 @@ namespace LyricTestCase
         /// 第一课作业
         /// test google search page
         /// </summary>
-        [Test, Order(2)]
+        [Test, Order(3)]
         public void ChromeHomePageTest()
         {
             GoogleSearch googleSearch = new GoogleSearch();

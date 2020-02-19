@@ -34,4 +34,3 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\SeleniumExtras.WaitHelpers.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\WebDriver.Support.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\WebDriver.Support.xml
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\SeleniumTutorialTestCode.csprojAssemblyReference.cache
