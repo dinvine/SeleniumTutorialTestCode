@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using NUnit.Framework;
 
 namespace SeleniumTutorialTestCode.PageOBJ
 {
@@ -14,8 +15,13 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
 
         public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
-       // public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
-       
+
+        public IWebElement ChkBoxRememberMe => webDriver.FindElement(By.Name("_remember_me"));
+
+        public IWebElement txtLoginErrMsg => webDriver.FindElement(By.XPath("/html/body/div[1]/div[1]/div/div[2]/form/div[1]"));
+
+        // public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
+
 
         //    public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
         //*[@id="login-form"]/div[4]/button
@@ -63,6 +69,20 @@ namespace SeleniumTutorialTestCode.PageOBJ
             passwordEnter(password);
             btnLoginClick();
 
+        }
+
+        public void chkBoxRememberMeClick()
+        {
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("_remember_me")));
+
+            if (ChkBoxRememberMe.Selected == false)
+                ChkBoxRememberMe.Click();
+        }
+
+        public void LoginErrMsgDisplayed(string expectStr)
+        {
+            Assert.AreEqual(expectStr, txtLoginErrMsg.Text, "test faled due to login error msg not displayed.");
         }
     }
 }

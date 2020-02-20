@@ -109,6 +109,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Steps\PostConditionSteps.cs" />
     <Compile Include="Steps\UserLoginSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -116,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Features\HomePage.feature" />
     <None Include="Features\UserLogin.feature" />
     <None Include="packages.config" />
   </ItemGroup>

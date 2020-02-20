@@ -53,13 +53,11 @@ namespace SeleniumTutorialTestCode.PageOBJ
             btnSearch2.Click();
             Assert.That(webDriver.Title.Contains(searchTxt), "test fail due to title does not contain search items");
             browser.GetDriver().Navigate().Back();
-
         }
 
         public void gmailLinkTest()
         {
             gmailLink.Click();
-
             Assert.That(webDriver.Title.Contains("Gmail"), "test fail due to title does not contain Gmail");
             browser.GetDriver().Navigate().Back();
         }
@@ -74,7 +72,6 @@ namespace SeleniumTutorialTestCode.PageOBJ
         public void signInLinkTest()
         {
             signInLink.Click();
-
             Assert.That(webDriver.Title.Contains("Sign in"), "test fail due to title does not contain Sign in");
             browser.GetDriver().Navigate().Back();
         }
