@@ -41,7 +41,7 @@ namespace EduSohoClassTest.Steps
         }
 
 
-        [When(@"I click 退出登陆")]
+        [When(@"hover on the avatar and click 退出登陆")]
         public void WhenIClick退出登陆()
         {
             homePage.LogOut();

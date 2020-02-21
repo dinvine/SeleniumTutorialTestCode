@@ -1,5 +1,5 @@
 ﻿Feature: EduSoho User Login
-	In order to view the lessons of Lyric
+	In order to view the lessons of SohoEDU
 	As a user
 	I want to login 
 

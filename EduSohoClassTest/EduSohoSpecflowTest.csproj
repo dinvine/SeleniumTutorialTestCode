@@ -115,18 +115,31 @@
     <Compile Include="Pages\EduSohoListPage.cs" />
     <Compile Include="Pages\EduSohoPages.cs" />
     <Compile Include="Pages\EduSohoLoginPage.cs" />
+    <Compile Include="Pages\EduSohoPersonalSettingsPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Hooks\PostConditions.cs" />
+    <Compile Include="Steps\PersonalSettingsSteps.cs" />
     <Compile Include="Steps\UserLoginSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\HomePage.feature" />
+    <None Include="Features\UserLogOut.feature" />
+    <None Include="Features\PersonalSettings.feature" />
     <None Include="Features\UserLogin.feature" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <COMReference Include="AutoItX3Lib">
+      <Guid>{F8937E53-D444-4E71-9275-35B64210CC3B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SpecFlow.3.1.82\build\SpecFlow.targets" Condition="Exists('..\packages\SpecFlow.3.1.82\build\SpecFlow.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
