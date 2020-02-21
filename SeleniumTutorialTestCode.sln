@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.1000
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumTutorialTestCode", "SeleniumTutorialTestCode\SeleniumTutorialTestCode.csproj", "{EE58F6F9-D180-479A-9611-7B093765C812}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyricPagesCode", "SeleniumTutorialTestCode\LyricPagesCode.csproj", "{EE58F6F9-D180-479A-9611-7B093765C812}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyricTestCase", "LyricTestCase\LyricTestCase.csproj", "{2EB55FE6-A79D-436D-8DA7-93BDB4172C4F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LyricNUnitTestSuite", "LyricTestCase\LyricNUnitTestSuite.csproj", "{2EB55FE6-A79D-436D-8DA7-93BDB4172C4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EduSohoSpecflowTest", "EduSohoClassTest\EduSohoSpecflowTest.csproj", "{7486AB47-4120-467D-9D65-7F390754EA36}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{2EB55FE6-A79D-436D-8DA7-93BDB4172C4F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EB55FE6-A79D-436D-8DA7-93BDB4172C4F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EB55FE6-A79D-436D-8DA7-93BDB4172C4F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7486AB47-4120-467D-9D65-7F390754EA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7486AB47-4120-467D-9D65-7F390754EA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7486AB47-4120-467D-9D65-7F390754EA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7486AB47-4120-467D-9D65-7F390754EA36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

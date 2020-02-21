@@ -1,4 +1,3 @@
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\NUnit3.TestAdapter.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\NUnit3.TestAdapter.pdb
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\nunit.engine.dll
@@ -111,7 +110,6 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\Newto
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\nunit.framework.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\SeleniumTutorialTestCode.exe
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\System.Threading.Tasks.Extensions.dll
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\TechTalk.SpecFlow.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\Utf8Json.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.Support.dll
@@ -127,9 +125,6 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\Newto
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\nunit.framework.pdb
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\nunit.framework.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\System.Threading.Tasks.Extensions.xml
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\TechTalk.SpecFlow.pdb
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\TechTalk.SpecFlow.xml
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\TechTalk.SpecFlow.NUnit.SpecFlowPlugin.pdb
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\Utf8Json.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.Support.xml
