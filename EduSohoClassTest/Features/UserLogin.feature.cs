@@ -225,6 +225,58 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("should give correct message for invalid email entered in pwd reset page")]
+        [NUnit.Framework.TestCaseAttribute("aa.com", "请输入有效的电子邮件地址", "invalid", null)]
+        [NUnit.Framework.TestCaseAttribute("aa@bb", "请输入有效的电子邮件地址", "unexisting", null)]
+        [NUnit.Framework.TestCaseAttribute("aa@bb.bb.", "请输入有效的电子邮件地址", "invalid", null)]
+        [NUnit.Framework.TestCaseAttribute("aa@aa.com", "该邮箱地址没有注册过帐号", "unexisting", null)]
+        public virtual void ShouldGiveCorrectMessageForInvalidEmailEnteredInPwdResetPage(string emailForPWDReset, string msg, string fieldName, string[] exampleTags)
+        {
+            string[] tagsOfScenario = exampleTags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should give correct message for invalid email entered in pwd reset page", null, exampleTags);
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 39
+ testRunner.Given("I am in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 40
+ testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+ testRunner.And("click 找回密码 link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 42
+ testRunner.When(string.Format("enter \"{0}\"emailForPWDReset", emailForPWDReset), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 43
+ testRunner.And("click 重设密码", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 44
+ testRunner.Then(string.Format("there should be \"{0}\"msg shown on  \"{1}\" fieldName in password reset page", msg, fieldName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

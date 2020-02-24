@@ -15,6 +15,7 @@ namespace EduSohoClassTest
         EduSohoHomePage homePage;
         EduSohoLoginPage loginPage;
         EduSohoListPage listPage;
+        EduSohoPWDRestPage pwdResetPage;
 
         public UserLoginSteps(ScenarioContext scenarioContext)
         {
@@ -85,6 +86,32 @@ namespace EduSohoClassTest
         {
             loginPage.LoginErrMsgDisplayed(p0);
         }
+
+        [Given(@"click 找回密码 link")]
+        public void GivenClickPWDResetLinkOnLoginPage()
+        {
+            loginPage.PWDResetClick();
+            pwdResetPage = new EduSohoPWDRestPage(context);
+        }
+
+        [When(@"enter ""(.*)""emailForPWDReset")]
+        public void WhenEnterEmailForPWDReset(string p0)
+        {
+            pwdResetPage.EmailEnter(p0);
+        }
+
+        [When(@"click 重设密码")]
+        public void WhenClickPWDResetOnPWDResetPage()
+        {
+            pwdResetPage.PWDRestClick();
+        }
+
+        [Then(@"there should be ""(.*)""msg shown on  ""(.*)"" fieldName in password reset page")]
+        public void ThenThereShouldBeMsgShownOnFieldNameInPasswordResetPage(string expectedStr, string fieldName)
+        {
+            pwdResetPage.LoginErrMsgDisplayed(expectedStr, fieldName);
+        }
+
 
 
     }

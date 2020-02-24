@@ -35,6 +35,21 @@ Scenario: should fail to login with invalid credential
 	| username | password |
 	| test001  | invalidPWD |
 
+Scenario: should give correct message for invalid email entered in pwd reset page
+	Given I am in homepage
+	And I click login buton and jump to login page
+	And click 找回密码 link
+	When enter "<emailForPWDReset>"emailForPWDReset
+	And click 重设密码
+	Then there should be "<msg>"msg shown on  "<fieldName>" fieldName in password reset page
+	Examples: 
+	| emailForPWDReset | msg					| fieldName  |
+	| aa.com           | 请输入有效的电子邮件地址 | invalid    |
+	| aa@bb            | 请输入有效的电子邮件地址 | unexisting |
+	| aa@bb.bb.        | 请输入有效的电子邮件地址 | invalid    |
+	| aa@aa.com        | 该邮箱地址没有注册过帐号 | unexisting |
+
+
 	#@auto
 #Scenario: UserLogin1
 #	Given I am in homepage

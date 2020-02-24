@@ -4,6 +4,7 @@ using System;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using OpenQA.Selenium.Interactions;
+using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
@@ -100,38 +101,28 @@ namespace EduSohoClassTest.Pages
         }
         public void LoginErrMsgDisplayed(string expectMsg, string labelName)
         {
+            By by=null;
             
-            string msgShown = "";
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
             switch (labelName)
             {
                 
-                case "email":                    
-                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_email-error")));
-                    msgShown = labelEmail.Text;
+                case "email":
+                    by = By.Id("register_email-error");
                     break;
                 case "username":
-
-                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_nickname-error")));
-                    msgShown = labelUsername.Text;
+                    by = By.Id("register_nickname-error");
                     break;
                 case "password":
-
-                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_password-error")));
-                    msgShown = labelPassword.Text;
+                    by = By.Id("register_password-error");
                     break;
                 case "captchaCode":
-
-                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("captcha_code-error")));
-                    msgShown = labelCaptchaCode.Text;
+                    by = By.Id("captcha_code-error");
                     break;
                 case "userterm":
-
-                    wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("userterms-error")));
-                    msgShown = labelUserterms.Text;
+                    by = By.Id("userterms-error");
                     break;
             }
-            Assert.AreEqual(expectMsg, msgShown, "test failed due to Error message of " + labelName + " shown in register page");
+            Helps.LabelShowMsgAsExpected(webDriver,by, expectMsg, labelName);
         }
     }
 }

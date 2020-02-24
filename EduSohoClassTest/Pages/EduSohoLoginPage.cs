@@ -21,6 +21,8 @@ namespace EduSohoClassTest.Pages
 
         public IWebElement txtLoginErrMsg => webDriver.FindElement(By.XPath("/html/body/div[1]/div[1]/div/div[2]/form/div[1]"));
 
+        public IWebElement linkPWDRest => webDriver.FindElement(By.LinkText("找回密码"));
+
         // public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
 
 
@@ -85,6 +87,12 @@ namespace EduSohoClassTest.Pages
         public void LoginErrMsgDisplayed(string expectStr)
         {
             Assert.AreEqual(expectStr, txtLoginErrMsg.Text, "test faled due to login error msg not displayed.");
+        }
+
+        public void PWDResetClick()
+        {
+            linkPWDRest.Click();
+            context["webdriver"] = webDriver;
         }
     }
 }
