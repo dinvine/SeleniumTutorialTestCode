@@ -8,7 +8,7 @@
 Scenario: should give correct message for invalid info entered in register page
 	Given I am in register page
 	When enter "<inputValue>"inputValue to the "<fieldName>" fieldName to the form and press Enter key
-	And press Enter key in the email input
+	And click register button
 	Then there should be "<msg>"msg shown below  "<fieldName>" fieldName
 Examples: 
 | fieldName   | inputValue | msg                    |

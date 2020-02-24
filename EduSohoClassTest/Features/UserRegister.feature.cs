@@ -128,7 +128,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When(string.Format("enter \"{0}\"inputValue to the \"{1}\" fieldName to the form and press Enter key", inputValue, fieldName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 11
- testRunner.And("press Enter key in the email input", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("click register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
  testRunner.Then(string.Format("there should be \"{0}\"msg shown below  \"{1}\" fieldName", msg, fieldName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
