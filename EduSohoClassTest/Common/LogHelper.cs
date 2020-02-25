@@ -96,6 +96,7 @@ namespace EduSohoClassTest.Common
                 {
                     _streamWriter.Close();
                 }
+                System.Console.WriteLine(e.Message);
                 return false;
             }
             return false;

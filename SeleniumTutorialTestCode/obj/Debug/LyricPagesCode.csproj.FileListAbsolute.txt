@@ -17,4 +17,3 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csproj.CopyComplete
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\SeleniumTutorialTestCode.exe
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\SeleniumTutorialTestCode.pdb
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csprojAssemblyReference.cache

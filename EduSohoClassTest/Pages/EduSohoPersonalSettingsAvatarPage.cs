@@ -9,28 +9,17 @@ using OpenQA.Selenium.Interactions;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoPersonalSettingsPage
+    public class EduSohoPersonalSettingsAvatarPage
     {
         IWebDriver webDriver;
         ScenarioContext context;
-        public IWebElement avatarSetLink => webDriver.FindElement(By.LinkText("头像设置"));
         public IWebElement uploadNewAvatarBtn => webDriver.FindElement(By.Id("upload-picture-btn"));
         public IWebElement confirmNewAvatarBtn => webDriver.FindElement(By.Id("upload-avatar-btn"));
         
-        public EduSohoPersonalSettingsPage(ScenarioContext scenarioContext)
+        public EduSohoPersonalSettingsAvatarPage(ScenarioContext scenarioContext)
         {
             webDriver = (IWebDriver)scenarioContext["webdriver"];
             context = scenarioContext;
-        }
-        /// <summary>
-        /// click on the 头像设置
-        /// </summary>
-        public void AvatarAddClick()
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("头像设置")));
-            avatarSetLink.Click();
-            context["webdriver"] = webDriver;
         }
         /// <summary>
         /// click 上传新头像

@@ -13,7 +13,9 @@ namespace EduSohoClassTest.Steps
         public IWebDriver driver;
         readonly ScenarioContext context;
         EduSohoHomePage homePage;
-        EduSohoPersonalSettingsPage personalSettingsPage;
+        EduSohoPersonalSettingsLeftMenu leftMenuPage;
+        EduSohoPersonalSettingsAvatarPage avatarPage;
+        EduSohoPersonalSettingsBasicInfoPage basicInfoPage;
         PersonalSettingsSteps(ScenarioContext scenarioContext)
         {
             context = scenarioContext;
@@ -34,31 +36,76 @@ namespace EduSohoClassTest.Steps
         {
             homePage = new EduSohoHomePage(context);
             homePage.GotoPersonalSettings();
-            personalSettingsPage = new EduSohoPersonalSettingsPage(context);
-        }
+            leftMenuPage = new EduSohoPersonalSettingsLeftMenu(context);
+        }            
         
         [Given(@"click on the 头像设置")]
         public void GivenClickOnThe头像设置()
         {
-            personalSettingsPage.AvatarAddClick();
+            leftMenuPage.AvatarAddClick();
+            avatarPage = new EduSohoPersonalSettingsAvatarPage(context);
         }
+    
         
         [When(@"click 上传新头像")]
         public void WhenClick上传新头像()
         {
-            personalSettingsPage.UploadNewAvatarClick();
+            avatarPage.UploadNewAvatarClick();
         }
         
         [When(@"select image file and upload it")]
         public void WhenSelectImageFileAndClickOpen()
         {
-            personalSettingsPage.SelectFileForAvatar();
+            avatarPage.SelectFileForAvatar();
         }
         
         [Then(@"the avatar is updated to the new image")]
         public void ThenTheAvatarIsUpdatedToTheNewImage()
         {
-            personalSettingsPage.UploadImageFinished();
+            avatarPage.UploadImageFinished();
         }
+
+        [Given(@"click on the 基础信息")]
+        public void GivenClickOnThe基础信息()
+        {
+            leftMenuPage.BasicInfoClick();
+            basicInfoPage = new EduSohoPersonalSettingsBasicInfoPage(context);
+        }
+
+
+        [Then(@"msg should be there when inputValue is entered to fieldName as table below in personal basic info page")]
+        public void ThenMsgShouldBeThereWhenInputValueIsEnteredToFieldNameAsTableBelowInPersonalBasicInfoPage(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+
+                basicInfoPage.EnterOneTableRecordToPersonalBasicInfoPage(row[0].Trim(), row[1].Trim());
+                basicInfoPage.ShouldDisplayMsgAt(row[0].Trim(), row[2].Trim());
+            }
+        }
+
+        [When(@"msg should be there when inputValue is entered to fieldName as table below in personal basic info page")]
+        public void WhenMsgShouldBeThereWhenInputValueIsEnteredToFieldNameAsTableBelowInPersonalBasicInfoPage(Table table)
+        {
+            foreach (var row in table.Rows)
+            {
+                basicInfoPage.EnterOneTableRecordToPersonalBasicInfoPage(row[0].Trim(), row[1].Trim());
+                basicInfoPage.ShouldDisplayMsgAt(row[0].Trim(), row[2].Trim());
+            }
+        }
+
+        [When(@"click 保存 in personal basic info page")]
+        public void WhenClickSaveInPersonalBasicInfoPage()
+        {
+            basicInfoPage.SubmitClick();
+        }
+        
+        [Then(@"success message should show ""(.*)""")]
+        public void ThenSuccessMessageShouldShow(string p0)
+        {
+            basicInfoPage.SuccessSaveShown(p0);
+        }
+
+
     }
 }

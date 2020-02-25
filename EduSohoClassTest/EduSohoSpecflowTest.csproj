@@ -114,11 +114,13 @@
     <Compile Include="Hooks\PreConditions.cs" />
     <Compile Include="Pages\EduSohoHomePage.cs" />
     <Compile Include="Pages\EduSohoListPage.cs" />
+    <Compile Include="Pages\EduSohoPersonalSettingsLeftMenu.cs" />
     <Compile Include="Pages\EduSohoPWDRestPage.cs" />
+    <Compile Include="Pages\EduSohoPersonalSettingsBasicInfoPage.cs" />
     <Compile Include="Pages\EduSohoRegisterPage.cs" />
     <Compile Include="Pages\EduSohoPages.cs" />
     <Compile Include="Pages\EduSohoLoginPage.cs" />
-    <Compile Include="Pages\EduSohoPersonalSettingsPage.cs" />
+    <Compile Include="Pages\EduSohoPersonalSettingsAvatarPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Hooks\PostConditions.cs" />

@@ -76,12 +76,12 @@ namespace EduSohoClassTest.Features
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Upload image for avatar")]
-        [NUnit.Framework.CategoryAttribute("mytag")]
+        [NUnit.Framework.CategoryAttribute("negative")]
         [NUnit.Framework.TestCaseAttribute("test001", "Test1234", null)]
         public virtual void UploadImageForAvatar(string username, string password, string[] exampleTags)
         {
             string[] @__tags = new string[] {
-                    "mytag"};
+                    "negative"};
             if ((exampleTags != null))
             {
                 @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
@@ -125,6 +125,208 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 13
  testRunner.Then("the avatar is updated to the new image", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("should give response to invalid input in personal basic info page")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void ShouldGiveResponseToInvalidInputInPersonalBasicInfoPage()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "negative"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should give response to invalid input in personal basic info page", null, new string[] {
+                        "negative"});
+#line 19
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 20
+ testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 21
+ testRunner.And("hover on the avatar and click 个人设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 22
+ testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "fieldName",
+                            "inputValue",
+                            "msg"});
+                table1.AddRow(new string[] {
+                            "真实姓名",
+                            "a123456789012345678",
+                            "最多只能输入 18 个字符"});
+                table1.AddRow(new string[] {
+                            "身份证号码",
+                            "320508198001014880",
+                            "请正确输入您的身份证号码"});
+                table1.AddRow(new string[] {
+                            "手机号码",
+                            "29915559844",
+                            "请输入正确的手机号"});
+                table1.AddRow(new string[] {
+                            "公司",
+                            "MagicCloud Corp.",
+                            ""});
+                table1.AddRow(new string[] {
+                            "职业",
+                            "Test analyst",
+                            ""});
+                table1.AddRow(new string[] {
+                            "头衔",
+                            "intermediate tester so good a title i like",
+                            "最多只能输入 24 个字符"});
+                table1.AddRow(new string[] {
+                            "个人签名",
+                            "good better best",
+                            ""});
+                table1.AddRow(new string[] {
+                            "自我介绍",
+                            "impssible is nothing",
+                            ""});
+                table1.AddRow(new string[] {
+                            "个人空间",
+                            "github.com",
+                            "地址不正确，须以http://或者https://开头。"});
+                table1.AddRow(new string[] {
+                            "微博",
+                            "wechat.com",
+                            "地址不正确，须以http://或者https://开头。"});
+                table1.AddRow(new string[] {
+                            "微信",
+                            "dinvvvvv",
+                            ""});
+                table1.AddRow(new string[] {
+                            "QQ",
+                            "84745aaa",
+                            "请输入正确的QQ号"});
+#line 23
+ testRunner.Then("msg should be there when inputValue is entered to fieldName as table below in per" +
+                        "sonal basic info page", ((string)(null)), table1, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("should be able to modify personal basic info page")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        public virtual void ShouldBeAbleToModifyPersonalBasicInfoPage()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "positive"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should be able to modify personal basic info page", null, new string[] {
+                        "positive"});
+#line 40
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 41
+ testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 42
+ testRunner.And("hover on the avatar and click 个人设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 43
+ testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "fieldName",
+                            "inputValue",
+                            "msg"});
+                table2.AddRow(new string[] {
+                            "真实姓名",
+                            "Daniel",
+                            ""});
+                table2.AddRow(new string[] {
+                            "身份证号码",
+                            "320508198001014885",
+                            ""});
+                table2.AddRow(new string[] {
+                            "手机号码",
+                            "19915559844",
+                            ""});
+                table2.AddRow(new string[] {
+                            "公司",
+                            "Lyra Edu\t Corp.",
+                            ""});
+                table2.AddRow(new string[] {
+                            "职业",
+                            "Test analyst",
+                            ""});
+                table2.AddRow(new string[] {
+                            "头衔",
+                            "intermediate tester",
+                            ""});
+                table2.AddRow(new string[] {
+                            "个人签名",
+                            "good better best",
+                            ""});
+                table2.AddRow(new string[] {
+                            "自我介绍",
+                            "impssible is nothing",
+                            ""});
+                table2.AddRow(new string[] {
+                            "个人空间",
+                            "http://github.com",
+                            ""});
+                table2.AddRow(new string[] {
+                            "微博",
+                            "http://weibo.com",
+                            ""});
+                table2.AddRow(new string[] {
+                            "微信",
+                            "dinvvvvv",
+                            ""});
+                table2.AddRow(new string[] {
+                            "QQ",
+                            "84745aaa",
+                            ""});
+#line 44
+ testRunner.When("msg should be there when inputValue is entered to fieldName as table below in per" +
+                        "sonal basic info page", ((string)(null)), table2, "When ");
+#line hidden
+#line 58
+ testRunner.And("click 保存 in personal basic info page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 59
+ testRunner.Then("success message should show \"基础信息保存成功。\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
