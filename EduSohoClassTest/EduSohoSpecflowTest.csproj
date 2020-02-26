@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Pages\EduSohoAdminArticlePage.cs" />
     <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Common\Browser.cs" />
     <Compile Include="Common\Helps.cs" />
@@ -137,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\AdminArticleManage.feature" />
     <None Include="Features\AdminOrderManage.feature" />
     <None Include="Features\UserLogOut.feature" />
     <None Include="Features\PersonalSettings.feature" />

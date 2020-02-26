@@ -40,6 +40,13 @@ namespace EduSohoClassTest.Common
             msgShown = webElement.Text;
             Assert.AreEqual(expectMsg, msgShown, "test failed due to Error message of " + labelName + " shown in register page");
         }
+
+        public static void LinkTextClick(IWebDriver dr,string linkText)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(10));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(linkText));
+            dr.FindElement(By.LinkText(linkText)).Click();
+        }
     }
 
     public class DatacollectionSimpleTBL

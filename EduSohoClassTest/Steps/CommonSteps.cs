@@ -2,6 +2,7 @@
 using EduSohoClassTest.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.UI;
 using System;
 using TechTalk.SpecFlow;
 
@@ -70,5 +71,12 @@ namespace EduSohoClassTest.Steps
             //        break;
             //}
         }
+        [Given(@"I click linktext ""(.*)""")]
+        public void GivenIClickLinktext(string p0)
+        {
+            Helps.LinkTextClick(driver, p0);
+            context["webdriver"] = driver;
+        }
+
     }
 }
