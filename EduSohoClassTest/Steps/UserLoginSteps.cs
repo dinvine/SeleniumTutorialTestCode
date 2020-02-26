@@ -5,13 +5,14 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 using TechTalk.SpecFlow;
 
-namespace EduSohoClassTest
+namespace EduSohoClassTest.Steps
 {
     [Binding]
     public class UserLoginSteps
     {
         public IWebDriver driver;
         readonly ScenarioContext context;
+        CommonSteps commonSteps;
         EduSohoHomePage homePage;
         EduSohoLoginPage loginPage;
         EduSohoListPage listPage;
@@ -29,32 +30,9 @@ namespace EduSohoClassTest
                 driver.Navigate().GoToUrl(baseURL);
                 context["webdriver"] = driver;
             }
-            
-            
+            commonSteps = new CommonSteps(scenarioContext);
 
         }
-
-        [Given(@"I am in homepage")]
-        public void GivenIAmInHomepage()
-        {
-            homePage = new EduSohoHomePage(context);
-            homePage.GotoHomePage();
-        }
-        
-        [Given(@"I click login buton and jump to login page")]
-        public void GivenIClickLoginButonAndJumpToLoginPage()
-        {
-            homePage.LoginLinkClick();
-            loginPage = new EduSohoLoginPage(context);
-        }
-
-        [When(@"I enter ""(.*)"" username and ""(.*)"" password to login")]
-        public void WhenIEnterUsernameAndPasswordToLogin(string p0, string p1)
-        {
-            loginPage.Login(p0, p1);
-            homePage = new EduSohoHomePage(context);
-        }
-
 
         [Then(@"I can click the 更多课程 and jump to course page")]
         public void ThenICanClickThe更多课程AndJumpToCoursePage()
@@ -80,7 +58,7 @@ namespace EduSohoClassTest
         {
             loginPage.chkBoxRememberMeClick();
         }
-
+        
         [Then(@"I can see ""(.*)"" on the login page")]
         public void ThenICanSeeOnTheLoginPage(string p0)
         {
@@ -90,6 +68,8 @@ namespace EduSohoClassTest
         [Given(@"click 找回密码 link")]
         public void GivenClickPWDResetLinkOnLoginPage()
         {
+            if (loginPage == null)
+                loginPage = new EduSohoLoginPage(context);
             loginPage.PWDResetClick();
             pwdResetPage = new EduSohoPWDRestPage(context);
         }

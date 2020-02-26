@@ -6,7 +6,7 @@
 @negative
 Scenario: Upload image for avatar
 	Given I success to  enter "<username>" username and "<password>" password to log in
-	And hover on the avatar and click 个人设置
+	And hover on the avatar and click "个人设置"
 	And click on the 头像设置
 	When click 上传新头像
 	And select image file and upload it
@@ -18,7 +18,7 @@ Scenario: Upload image for avatar
 @negative
 Scenario: should give response to invalid input in personal basic info page
 	Given I success to  enter "test001" username and "Test1234" password to log in
-	And hover on the avatar and click 个人设置
+	And hover on the avatar and click "个人设置"
 	And click on the 基础信息
 	Then msg should be there when inputValue is entered to fieldName as table below in personal basic info page
 	| fieldName		| inputValue			| msg										|
@@ -39,7 +39,7 @@ Scenario: should give response to invalid input in personal basic info page
 	@positive
 Scenario: should be able to modify personal basic info page
 	Given I success to  enter "test001" username and "Test1234" password to log in
-	And hover on the avatar and click 个人设置
+	And hover on the avatar and click "个人设置"
 	And click on the 基础信息
 	When msg should be there when inputValue is entered to fieldName as table below in personal basic info page
 	| fieldName		| inputValue			| msg	|

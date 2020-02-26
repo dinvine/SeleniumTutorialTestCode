@@ -8,15 +8,15 @@ using TechTalk.SpecFlow;
 namespace EduSohoClassTest.Steps
 {
     [Binding]
-    public class PersonalSettingsSteps
+    public class PersonalSettingsSteps//:BasePageSteps
     {
         public IWebDriver driver;
-        readonly ScenarioContext context;
+        public ScenarioContext context;
         EduSohoHomePage homePage;
         EduSohoPersonalSettingsLeftMenu leftMenuPage;
         EduSohoPersonalSettingsAvatarPage avatarPage;
         EduSohoPersonalSettingsBasicInfoPage basicInfoPage;
-        PersonalSettingsSteps(ScenarioContext scenarioContext)
+        PersonalSettingsSteps(ScenarioContext scenarioContext)//:base(scenarioContext)
         {
             context = scenarioContext;
             if (scenarioContext.ContainsKey("webdriver"))
@@ -28,16 +28,11 @@ namespace EduSohoClassTest.Steps
                 driver.Navigate().GoToUrl(baseURL);
                 context["webdriver"] = driver;
             }
-
+           
+            leftMenuPage = new EduSohoPersonalSettingsLeftMenu(context);
         }
 
-        [Given(@"hover on the avatar and click 个人设置")]
-        public void GivenHoverOnTheAvatarAndClick个人设置()
-        {
-            homePage = new EduSohoHomePage(context);
-            homePage.GotoPersonalSettings();
-            leftMenuPage = new EduSohoPersonalSettingsLeftMenu(context);
-        }            
+           
         
         [Given(@"click on the 头像设置")]
         public void GivenClickOnThe头像设置()

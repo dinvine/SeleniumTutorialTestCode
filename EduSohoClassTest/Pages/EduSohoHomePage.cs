@@ -8,18 +8,17 @@ using TechTalk.SpecFlow;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoHomePage
+    public class EduSohoHomePage:EduSohoHeaderAvatarPopMenue
     {
         IWebDriver webDriver;
         ScenarioContext context;
         public IWebElement logInLink => webDriver.FindElement(By.LinkText("登录"));
-        public IWebElement avatarLink => webDriver.FindElement(By.ClassName("avatar-xs"));
-        // public IWebElement moreClassLink => webDriver.FindElement(By.XPath(@"//*[@id='course - list - section']/div/div[4]/a"));
+//      public IWebElement avatarLink => webDriver.FindElement(By.ClassName("avatar-xs"));
         public IWebElement moreClassLink => webDriver.FindElement(By.XPath(@"/html/body/div[1]/section[2]/div/div[4]/a"));
         public IWebElement logOutLink => webDriver.FindElement(By.LinkText("退出登录"));
         public IWebElement personalSettingsLink => webDriver.FindElement(By.LinkText("个人设置"));
 
-        public EduSohoHomePage(ScenarioContext scenarioContext)
+        public EduSohoHomePage(ScenarioContext scenarioContext):base(scenarioContext)
         {
             webDriver = (IWebDriver)scenarioContext["webdriver"];
             context = scenarioContext;
@@ -49,41 +48,13 @@ namespace EduSohoClassTest.Pages
 
         public void SuccessLogin()
         {
-            Assert.IsTrue(avatarLink.Displayed, "test failed due to avatar is not displayed after login action.");            
+            Assert.IsTrue(base.头像.Displayed, "test failed due to avatar is not displayed after login action.");            
         }
 
         public void SuccessLogout()
         {
-            Assert.IsFalse(avatarLink.Displayed, "test failed due to avatar is not displayed after login action.");
+            Assert.IsFalse(base.头像.Displayed, "test failed due to avatar is not displayed after login action.");
             Assert.AreEqual("http://lyratesting2.co.nz/login", webDriver.Url, "test failed due to url is not directed to login page after logout action");
-        }
-
-        public void HoverOnAvatar()
-        {
-            Actions builder = new Actions(webDriver);
-            Actions hover = builder.MoveToElement(avatarLink);
-            hover.Build().Perform();
-        }
-        
-
-        public void LogOut()
-        {
-            HoverOnAvatar();
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("退出登录")));
-            logOutLink.Click();
-            context["webdriver"] = webDriver;
-        }
-        /// <summary>
-        /// click 个人设置
-        /// </summary>
-        public void GotoPersonalSettings()
-        {
-            HoverOnAvatar();
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("个人设置")));
-            personalSettingsLink.Click();
-            context["webdriver"] = webDriver;
         }
 
         public void GotoHomePage()

@@ -1,10 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TechTalk.SpecFlow;
 using EduSohoClassTest.Common;
 
@@ -16,8 +11,15 @@ namespace EduSohoClassTest.Hooks
         ScenarioContext context;
         PreConditions(ScenarioContext scenarioContext)
         {
-
-            driver = new FirefoxDriver();
+            string browsertype= Helps.GetConfigurationValue("BrowserType");
+            switch(browsertype){
+                case "Firefox":
+                    driver = new FirefoxDriver();
+                    break;
+                case "Chrome":
+                    driver = new FirefoxDriver();
+                    break;
+            }
             context = scenarioContext;
         }
 

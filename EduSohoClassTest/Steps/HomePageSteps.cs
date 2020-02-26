@@ -3,6 +3,7 @@ using EduSohoClassTest.Common;
 using EduSohoClassTest.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 
 namespace EduSohoClassTest.Steps
@@ -13,8 +14,10 @@ namespace EduSohoClassTest.Steps
         public IWebDriver driver;
         readonly ScenarioContext context;
         EduSohoHomePage homePage;
-//        EduSohoLoginPage loginPage;
- //       EduSohoListPage listPage;
+        EduSohoHeaderAvatarPopMenue avatarMenue;
+        CommonSteps commonSteps;
+        //        EduSohoLoginPage loginPage;
+        //       EduSohoListPage listPage;
         HomePageSteps(ScenarioContext scenarioContext)
         {
             context = scenarioContext;
@@ -27,17 +30,17 @@ namespace EduSohoClassTest.Steps
                 driver.Navigate().GoToUrl(baseURL);
                 context["webdriver"] = driver;
             }
+            commonSteps = new CommonSteps(scenarioContext);
         }
 
         [Given(@"I success to  enter ""(.*)"" username and ""(.*)"" password to log in")]
         public void GivenISuccessToEnterUsernameAndPasswordToLogIn(string p0 , string p1)
         {
             UserLoginSteps login = new UserLoginSteps(context);
-            login.GivenIAmInHomepage();
-            login.GivenIClickLoginButonAndJumpToLoginPage();
-            login.WhenIEnterUsernameAndPasswordToLogin(p0, p1);
+            commonSteps.GivenIAmInHomepage();
+            commonSteps.GivenIClickLoginButonAndJumpToLoginPage();
+            commonSteps.WhenIEnterUsernameAndPasswordToLogin(p0, p1);
             homePage = new EduSohoHomePage(context);
-
         }
 
 

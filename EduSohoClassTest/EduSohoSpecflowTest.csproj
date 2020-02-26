@@ -108,12 +108,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Steps\CommonSteps.cs" />
     <Compile Include="Common\Browser.cs" />
     <Compile Include="Common\Helps.cs" />
     <Compile Include="Common\LogHelper.cs" />
     <Compile Include="Hooks\PreConditions.cs" />
+    <Compile Include="Pages\EduSohoAdminPage.cs" />
+    <Compile Include="Pages\EduSohoAdminTopMenue.cs" />
+    <Compile Include="Pages\EduSohoHeaderAvatarPopMenue.cs" />
     <Compile Include="Pages\EduSohoHomePage.cs" />
     <Compile Include="Pages\EduSohoListPage.cs" />
+    <Compile Include="Pages\EduSohoAdminOrderManagePage.cs" />
     <Compile Include="Pages\EduSohoPersonalSettingsLeftMenu.cs" />
     <Compile Include="Pages\EduSohoPWDRestPage.cs" />
     <Compile Include="Pages\EduSohoPersonalSettingsBasicInfoPage.cs" />
@@ -122,6 +127,8 @@
     <Compile Include="Pages\EduSohoLoginPage.cs" />
     <Compile Include="Pages\EduSohoPersonalSettingsAvatarPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Steps\AdminOrderManageSteps.cs" />
+    <Compile Include="Steps\BasePageSteps.cs" />
     <Compile Include="Steps\HomePageSteps.cs" />
     <Compile Include="Hooks\PostConditions.cs" />
     <Compile Include="Steps\PersonalSettingsSteps.cs" />
@@ -130,6 +137,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\AdminOrderManage.feature" />
     <None Include="Features\UserLogOut.feature" />
     <None Include="Features\PersonalSettings.feature" />
     <None Include="Features\UserLogin.feature" />

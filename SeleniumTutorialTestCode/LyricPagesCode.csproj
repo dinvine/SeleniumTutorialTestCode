@@ -63,7 +63,7 @@
     <Compile Include="Library\Browser.cs" />
     <Compile Include="Library\RadioButtons.cs" />
     <Compile Include="PageOBJ\GoogleSearch.cs" />
-    <Compile Include="PageOBJ\LyraTesting2HomePage.cs" />
+    <Compile Include="PageOBJ\LyraTesting2HomePage.cs" />	
     <Compile Include="PageOBJ\LyraTesting2ListPage.cs" />
     <Compile Include="PageOBJ\LyraTesting2Pages.cs" />
     <Compile Include="PageOBJ\LyricTesting2LoginPage.cs" />

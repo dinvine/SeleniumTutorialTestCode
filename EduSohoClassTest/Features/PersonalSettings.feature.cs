@@ -112,7 +112,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given(string.Format("I success to  enter \"{0}\" username and \"{1}\" password to log in", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 9
- testRunner.And("hover on the avatar and click 个人设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 10
  testRunner.And("click on the 头像设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -163,7 +163,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 21
- testRunner.And("hover on the avatar and click 个人设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 22
  testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -261,7 +261,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 42
- testRunner.And("hover on the avatar and click 个人设置", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
  testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
