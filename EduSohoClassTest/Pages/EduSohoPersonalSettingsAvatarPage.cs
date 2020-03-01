@@ -6,31 +6,28 @@ using AutoItX3Lib;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;
+using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoPersonalSettingsAvatarPage
+    public class EduSohoPersonalSettingsAvatarPage: EduSohoPersonalSettingsLeftMenu
     {
-        IWebDriver webDriver;
-        ScenarioContext context;
+//        IWebDriver webDriver;
+//        ScenarioContext context;
         public IWebElement uploadNewAvatarBtn => webDriver.FindElement(By.Id("upload-picture-btn"));
         public IWebElement confirmNewAvatarBtn => webDriver.FindElement(By.Id("upload-avatar-btn"));
         
-        public EduSohoPersonalSettingsAvatarPage(ScenarioContext scenarioContext)
+        public EduSohoPersonalSettingsAvatarPage(ScenarioContext scenarioContext):base(scenarioContext)
         {
-            webDriver = (IWebDriver)scenarioContext["webdriver"];
-            context = scenarioContext;
+            //webDriver = (IWebDriver)scenarioContext["webdriver"];
+            //context = scenarioContext;
         }
         /// <summary>
         /// click 上传新头像
         /// </summary>
         public void UploadNewAvatarClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("upload-picture-btn")));
-
-            uploadNewAvatarBtn.Click();            
-
+            Helps.ClickOperation(webDriver, By.Id("upload-picture-btn"));
         }
         /// <summary>
         /// select image file and upload it

@@ -6,7 +6,7 @@
 
 @auto
 Scenario: should sccuess to login without RememberMe
-	Given I am in homepage
+	Given I am in "EduSohoHomePageURL" page
 	And I click login buton and jump to login page
 	When I enter "<username>" username and "<password>" password to login
 	Then I can see avatar image on the right top of the home page
@@ -16,7 +16,7 @@ Scenario: should sccuess to login without RememberMe
 
 @auto
 Scenario: should sccuess to login with RememberMe
-	Given I am in homepage
+	Given I am in "EduSohoHomePageURL" page
 	And I click login buton and jump to login page
 	When I click remember me checkbox
 	And I enter "<username>" username and "<password>" password to login
@@ -27,7 +27,7 @@ Scenario: should sccuess to login with RememberMe
 
 @auto
 Scenario: should fail to login with invalid credential
-	Given I am in homepage
+	Given I am in "EduSohoHomePageURL" page
 	And I click login buton and jump to login page
 	When I enter "<username>" username and "<password>" password to login
 	Then I can see "用户名或密码错误" on the login page
@@ -36,7 +36,7 @@ Scenario: should fail to login with invalid credential
 	| test001  | invalidPWD |
 
 Scenario: should give correct message for invalid email entered in pwd reset page
-	Given I am in homepage
+	Given I am in "EduSohoHomePageURL" page
 	And I click login buton and jump to login page
 	And click 找回密码 link
 	When enter "<emailForPWDReset>"emailForPWDReset
@@ -45,7 +45,7 @@ Scenario: should give correct message for invalid email entered in pwd reset pag
 	Examples: 
 	| emailForPWDReset | msg					| fieldName  |
 	| aa.com           | 请输入有效的电子邮件地址 | invalid    |
-	| aa@bb            | 请输入有效的电子邮件地址 | unexisting |
+	| aa@bb            | 该邮箱地址没有注册过帐号 | unexisting |
 	| aa@bb.bb.        | 请输入有效的电子邮件地址 | invalid    |
 	| aa@aa.com        | 该邮箱地址没有注册过帐号 | unexisting |
 

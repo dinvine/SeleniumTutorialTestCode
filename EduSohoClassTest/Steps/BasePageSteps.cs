@@ -19,13 +19,7 @@ namespace EduSohoClassTest.Steps
             context = scenarioContext;
             if (scenarioContext.ContainsKey("webdriver"))
                 driver = (IWebDriver)scenarioContext["webdriver"];
-            else
-            {
-                string baseURL = Helps.GetConfigurationValue("EduSohoHomePageURL");
-                driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl(baseURL);
-                context["webdriver"] = driver;
-            }
+            
         }
     }
 }

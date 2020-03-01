@@ -6,29 +6,28 @@ using AutoItX3Lib;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;
+using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoPersonalSettingsLeftMenu
+    public class EduSohoPersonalSettingsLeftMenu:EduSohoTopMenuPage
     {
-        IWebDriver webDriver;
-        ScenarioContext context;
+        //IWebDriver webDriver;
+        //ScenarioContext context;
         public IWebElement avatarSetLink => webDriver.FindElement(By.LinkText("头像设置"));
         public IWebElement basicInfoSetLink => webDriver.FindElement(By.LinkText("基础信息"));
 
-        public EduSohoPersonalSettingsLeftMenu(ScenarioContext scenarioContext)
+        public EduSohoPersonalSettingsLeftMenu(ScenarioContext scenarioContext):base(scenarioContext)
         {
-            webDriver = (IWebDriver)scenarioContext["webdriver"];
-            context = scenarioContext;
+            //webDriver = (IWebDriver)scenarioContext["webdriver"];
+            //context = scenarioContext;
         }
         /// <summary>
         /// click on the 头像设置
         /// </summary>
         public void AvatarAddClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("头像设置")));
-            avatarSetLink.Click();
+            Helps.ClickOperation(webDriver, By.LinkText("头像设置"));
             context["webdriver"] = webDriver;
         }
 
@@ -37,9 +36,8 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void BasicInfoClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("基础信息")));
-            basicInfoSetLink.Click();
+
+            Helps.ClickOperation(webDriver, By.LinkText("基础信息"));
             context["webdriver"] = webDriver;
         }
     }

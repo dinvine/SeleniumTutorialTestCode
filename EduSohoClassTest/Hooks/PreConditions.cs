@@ -5,7 +5,8 @@ using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Hooks
 {
-    class PreConditions
+    [Binding]
+    public sealed class PreConditions
     {
         IWebDriver driver;
         ScenarioContext context;
@@ -24,7 +25,7 @@ namespace EduSohoClassTest.Hooks
         }
 
         [BeforeScenario()]
-        public void ScenarioTearDown()
+        public void ScenarioSetUp()
         {
             string baseURL = Helps.GetConfigurationValue("EduSohoHomePageURL");
             driver.Navigate().GoToUrl(baseURL);

@@ -7,20 +7,16 @@ using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoPWDRestPage
+    public class EduSohoPWDRestPage: EduSohuBasePage
     {
-
-        IWebDriver webDriver;
-        ScenarioContext context;
+        
         public IWebElement txtEmail => webDriver.FindElement(By.Id("form_email"));
 
         public IWebElement btnPWDRest  => webDriver.FindElement(By.ClassName("btn-primary"));
 
 
-        public EduSohoPWDRestPage(ScenarioContext scenarioContext)
+        public EduSohoPWDRestPage(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-            webDriver = (IWebDriver)scenarioContext["webdriver"];
-            context = scenarioContext;
         }
 
         /// <summary>
@@ -28,9 +24,7 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void EmailEnter(string email)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("form_email")));
-            txtEmail.SendKeys(email);
+            Helps.InputClearAndStringOperation(webDriver, By.Id("form_email"), email);
         }
 
         public void PWDRestClick()

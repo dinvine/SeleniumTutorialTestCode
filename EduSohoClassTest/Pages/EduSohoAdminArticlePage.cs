@@ -1,34 +1,16 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
 using System;   
 using TechTalk.SpecFlow;
-using AutoItX3Lib;
-using System.Threading;
+using EduSohoClassTest.Common;
 using NUnit.Framework;
-using OpenQA.Selenium.Interactions;
+using System.Collections.Generic;
+using System.Threading;
 
 namespace EduSohoClassTest.Pages
 {
     public class EduSohoAdminArticlePage: EduSohoAdminTopMenue
     {
-        IWebDriver webDriver;
-        ScenarioContext context;
-       
-        public IWebElement 课程订单 => webDriver.FindElement(By.LinkText("课程订单"));
-        public IWebElement 班级订单 => webDriver.FindElement(By.LinkText("班级订单"));
-        public IWebElement 虚拟币订单 => webDriver.FindElement(By.LinkText("虚拟币订单"));
-
-        public IWebElement 起始时间 => webDriver.FindElement(By.Id("startDate"));
-        public IWebElement 结束时间 => webDriver.FindElement(By.Id("endDate"));
-        public IWebElement 订单状态 => webDriver.FindElement(By.Name("status"));
-        public IWebElement 支付方式 => webDriver.FindElement(By.Name("payment"));
-        public IWebElement 关键词type => webDriver.FindElement(By.Name("keywordType"));
-        public IWebElement 关键词 => webDriver.FindElement(By.Name("keyword"));
-        public IWebElement 搜索 => webDriver.FindElement(By.XPath("/html/body/div[2]/div/div[2]/form/div[2]/button"));
-        public IWebElement 导出结果 => webDriver.FindElement(By.ClassName("btn-export-csv"));
-
-        public IWebElement 查询结果table => webDriver.FindElement(By.Id("order-table"));
-        
+        public IWebElement resultTable;     
 
 
         public EduSohoAdminArticlePage(ScenarioContext scenarioContext):base(scenarioContext)
@@ -36,179 +18,260 @@ namespace EduSohoClassTest.Pages
             webDriver = (IWebDriver)scenarioContext["webdriver"];
             context = scenarioContext;
         }
+        
         /// <summary>
-        /// click on the 课程订单
+        /// 所属栏目
         /// </summary>
-        public void 课程订单Click()
+        /// <param name="input"></param>
+        public void CategoryNameSelect(string input)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("课程订单")));
-            课程订单.Click();
+            Helps.ClickOperation(webDriver, By.ClassName("select2-choice"));
+            Helps.InputClearAndStringOperation(webDriver, By.XPath("/html/body/div[7]/div/input"), input);
+            Helps.InputClearAndStringOperation(webDriver, By.XPath("/html/body/div[7]/div/input"), Keys.Enter);
+        }
+
+        /// <summary>
+        /// 标题关键词
+        /// </summary>
+        /// <param name="input"></param>
+        public void KeywordEnter(string input)
+        {
+            Helps.InputClearAndStringOperation(webDriver, By.Name("keywords"), input);
+        }
+
+        /// <summary>
+        /// 属性
+        /// </summary>
+        /// <param name="input"></param>
+        public void PropertySelect(string input)
+        {
+            Helps.SelectOperation(webDriver, By.Name("property"), input);
+        }
+
+        /// <summary>
+        /// 发布状态
+        /// </summary>
+        /// <param name="input"></param>
+        public void PublishStatusSelect(string input)
+        {
+            Helps.SelectOperation(webDriver, By.Name("status"), input);
+        }
+
+
+        //| 所属栏目 | 标题关键词	| 属性	| 发布状态	|
+
+
+        /// <summary>
+        /// 资讯管理
+        /// </summary>
+        public void ArticleManageClick()
+        {
+            Helps.ClickOperation(webDriver, By.LinkText("资讯管理"));
+        }
+        /// <summary>
+        /// 栏目管理
+        /// </summary>
+        public void ArticleCategoryManageClick()
+        {
+            Helps.ClickOperation(webDriver, By.LinkText("栏目管理"));
+        }
+
+        /// <summary>
+        /// click 搜索按钮
+        /// </summary>
+        public void SearchBtnClick()
+        {
+            Helps.ClickOperation(webDriver, By.ClassName("btn-primary"));
+        }
+
+
+        public void CategoryAddBtnClick()
+        {
+            Helps.ClickOperation(webDriver, By.ClassName("btn-success"));
             context["webdriver"] = webDriver;
-        }
-
-        /// <summary>
-        /// click on the 班级订单
-        /// </summary>
-        public void 班级订单Click()
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("班级订单")));
-            班级订单.Click();
-            context["webdriver"] = webDriver;
-        }
-
-        /// <summary>
-        /// click on the 虚拟币订单
-        /// </summary>
-        public void 虚拟币订单Click()
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("虚拟币订单")));
-            虚拟币订单.Click();
-            context["webdriver"] = webDriver;
-        }
-
-        public void SelectOrderType(string typeName)
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(15));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(typeName)));
-            webDriver.FindElement(By.LinkText(typeName)).Click();
-        }
-
-        /// <summary>
-        /// enter in the 起始时间
-        /// </summary>
-        public void 起始时间Enter(string input)
-        {
-            if (input == "")
-                return;
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("startDate")));
-            起始时间.Clear();
-            起始时间.SendKeys(input);
-            起始时间.Click();
-        }
-
-        /// <summary>
-        /// enter in the 结束时间
-        /// </summary>
-        public void 结束时间Enter(string input)
-        {
-            if (input == "")
-                return;
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("endDate")));
-            结束时间.Clear();
-            结束时间.SendKeys(input);
-            结束时间.Click();
-        }
-
-        /// <summary>
-        /// select in the 订单状态
-        /// </summary>
-        public void 订单状态Select(string input="已付款")
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("status")));
             
-            
-            SelectElement selectElement = new SelectElement(订单状态);
-            selectElement.SelectByText(input);
         }
 
         /// <summary>
-        /// select in the 支付方式
+        /// delete the article category by name
         /// </summary>
-        public void 支付方式Select(string input = "支付宝")
+        /// <param name="categoryName"></param>
+        public void DeleteTheCategoryByCode(string categoryCode)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("payment")));
-            SelectElement selectElement = new SelectElement(支付方式);
-            selectElement.SelectByText(input);
+            IWebElement Table = webDriver.FindElement(By.Id("category-table"));
+            var rows = Table.FindElements(By.ClassName("tr"));
+            int rowIndex = 0;
+            foreach (var row in rows)
+            {
+                var cells = row.FindElements(By.ClassName("td"));
+                if (cells.Count == 0) continue;
+                int cellindex = 0;
+                foreach (var cell in cells)
+                {
+                    if (cell.GetAttribute("class").Contains("code"))
+                        if (cell.Text == categoryCode)
+                        {
+                            cells[cellindex + 1].FindElements(By.ClassName("btn-sm"))[0].Click();
+                            Helps.ClickOperation(webDriver, By.ClassName("delete-category"));
+                            IAlert alert = webDriver.SwitchTo().Alert();
+                            alert.Accept();
+                            Thread.Sleep(3000);
+                            return;
+                        }
+                    cellindex++;
+                }
+                rowIndex++;
+            }
         }
 
         /// <summary>
-        /// select in the 关键词type
+        /// delete the article  by name
         /// </summary>
-        public void 关键词typeSelect(string input = "课程名称")
+        /// <param name="deleteName"></param>
+        public void DeleteTheArticleByName(string deleteName)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("keywordType")));
-            SelectElement selectElement = new SelectElement(关键词type);
-            selectElement.SelectByText(input);
+            IWebElement articleTable = webDriver.FindElement(By.Id("article-table"));
+            var rows = articleTable.FindElements(By.TagName("tr"));
+            string articleName = "";
+            foreach (var row in rows)
+            {
+                var cells = row.FindElements(By.TagName("td"));
+                articleName = cells[1].FindElement(By.TagName("a")).Text;
+                if (articleName.Trim() == deleteName.Trim())
+                {
+                    IWebElement chkbxArticle = cells[0].FindElement(By.TagName("input"));
+                    chkbxArticle.Click();
+                    Helps.ClickOperation(webDriver, By.ClassName("mlm"));
+                    Helps.confirmDialog("lyratesting2.co.nz says", "", "{ENTER}");
+                    return;
+                }
+            }
         }
 
-        /// <summary>
-                 /// enter in the 关键词
-                 /// </summary>
-        public void 关键词Enter(string input)
+        public void ArticleTableShouldConformTheCondition(string ColumName,string conditionValue,string compare)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("keyword")));
-            关键词.Clear();
-            关键词.SendKeys(input);
-            关键词.SendKeys(Keys.Enter);
+
+            IWebElement articleTable = webDriver.FindElement(By.Id("article-table"));
+            IWebElement head = articleTable.FindElement(By.TagName("thead"));
+            int columIndex = 0;
+            Boolean finded = false;
+            Boolean consistent = true;
+            foreach(var headCell in head.FindElements(By.TagName("th")))
+            {
+                if (headCell.Text.Trim() == ColumName)
+                {
+                    finded = true;
+                    break;
+                }
+                    
+                columIndex++;
+            }
+            Assert.IsTrue(finded, "test failed due to ColumName:"+ ColumName + " not found in the table.");
+
+            var rows = articleTable.FindElements(By.TagName("tr"));
+            foreach (var row in rows)
+            {
+                var cells = row.FindElements(By.TagName("td"));
+                if (cells.Count == 0)
+                    continue;
+                
+                if (compare == "equal")
+                {
+                    if (cells[columIndex].Text != conditionValue)
+                    {
+                        consistent = false;
+                        break;
+                    }
+
+                }
+                if (compare == "contain")
+                {
+                    if (!cells[columIndex].Text.Contains(conditionValue))
+                    {
+                        consistent = false;
+                        break;
+                    }
+                }
+                if(compare== "label-success")
+                {
+                    finded = false;
+                    IList<IWebElement> successLabels = cells[columIndex].FindElements(By.ClassName("label-success"));
+                    foreach (var label in successLabels)
+                    {
+                        if (label.Text == conditionValue)
+                        {
+                            finded = true;
+                        }
+                    }
+                    if(finded==false)
+                    {
+                        consistent = false;
+                        break;
+                    }
+                }
+                Assert.IsTrue(consistent, "test failed due to ColumName:" + ColumName + " not consistant to the conditionValue:"+ conditionValue + " in the table.");
+
+                //if (titleKeyword != "")
+                //{
+                //    cellValue = cells[1].FindElement(By.TagName("a")).Text;
+                //    Assert.IsTrue(cellValue.Contains(titleKeyword), "test failed due to titleKeyword not contained in the results tilename");
+                //}
+
+                //if (categoryText != "")
+                //{
+                //    cellValue = cells[2].FindElement(By.TagName("a")).Text;
+                //    Assert.AreEqual(categoryText, cellValue, "test failed due to category in the results  doesnt conform to the condition");
+                //}
+
+                //if (property != "")
+                //{
+                //    Boolean propertyFinded = false;
+                //    IList<IWebElement> successLabels = cells[4].FindElements(By.ClassName("label-success"));
+                //    foreach (var label in successLabels)
+                //    {
+                //        if (label.Text == property)
+                //        {
+                //            propertyFinded = true;
+                //        }
+                //    }
+                //    Assert.IsTrue(propertyFinded, "test failed due to property in the results  doesnt conform to the condition");
+
+                //}
+                //if (publishStatus != "")
+                //{
+                //    cellValue = cells[5].FindElement(By.TagName("span")).Text;
+                //    Assert.AreEqual(publishStatus, cellValue, "test failed due to publishStatus in the results  doesnt conform to the condition");
+                //}
+            }
         }
 
 
-        /// <summary>
-        /// 搜索click
-        /// </summary>
-        public void 搜索click()
+        public void ModifyPublishStatusOfTheFirstRecord(string publishAction, string originPublishStatus)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[2]/div/div[2]/form/div[2]/button")));
-            搜索.Click();
-        }
-
-        /// <summary>
-        /// 导出结果click
-        /// </summary>
-        public void 导出结果click()
-        {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("btn-export-csv")));
-            导出结果.Click();
-        }
-
-        /// <summary>
-        /// 查询结果数量
-        /// </summary>
-        /// <returns></returns>
-        public int ResultCounts()
-        {
-
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("order-table")));
-            
-
-            //var columns = 查询结果table.FindElements(By.TagName("th"));
-            ////Get all the rows
-            //var rows = 查询结果table.FindElements(By.TagName("tr"));
-            ////Create row index
-            //int rowIndex = 0;
-            //foreach (var row in rows)
-            //{
-            //    int colIndex = 0;
-            //    var colDatas = row.FindElements(By.TagName("td"));
-            //    foreach (var colValue in colDatas)
-            //    {
-            //        //_SimpleTBLcollections.Add(new DatacollectionSimpleTBL
-            //        //{
-
-            //        //    rowNumber = rowIndex,
-            //        //    colName = columns[colIndex].Text != "" ?
-            //        //                 columns[colIndex].Text : colIndex.ToString(),
-            //        //    colValue = colValue.Text,
-            //        //});
-            //        //Move to next column
-            //        colIndex++;
-            //    }
-            //    rowIndex++;
-            //}
-
-            return 查询结果table.FindElements(By.TagName("tr")).Count;
+            IWebElement articleTable = webDriver.FindElement(By.Id("article-table"));
+            var rows = articleTable.FindElements(By.TagName("tr"));
+            string cellValue = "";
+            foreach (var row in rows)
+            {
+                var cells = row.FindElements(By.TagName("td"));
+                if (cells.Count == 0)
+                    continue;
+                //get text of publish status cell
+                cellValue = cells[5].FindElement(By.TagName("span")).Text;
+                if (cellValue == originPublishStatus)
+                {
+                    //click downArrow
+                    IWebElement downArrow = cells[6].FindElement(By.ClassName("dropdown-toggle"));
+                    downArrow.Click();
+                    Thread.Sleep(1000);
+                    //click publish action menu
+                    cells[6].FindElement(By.LinkText(publishAction)).Click();
+                    //click left checkbox to help locate this record in next step            
+                    cells[0].FindElement(By.TagName("input")).Click();
+                    Thread.Sleep(5000);
+                    return;
+                }
+            }
         }
 
         /// <summary>
@@ -219,9 +282,8 @@ namespace EduSohoClassTest.Pages
         public string GetResultCountOfTable()
         {
             string rowcountStr = "";
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("order-table")));
-            var tbody = 查询结果table.FindElement(By.TagName("tbody"));
+            resultTable = Helps.GetIWebElementBy(webDriver, By.Id("order-table"));
+            var tbody = resultTable.FindElement(By.TagName("tbody"));
             var rows= tbody.FindElements(By.TagName("tr"));           
             var firstRowItems=rows[0].FindElements(By.TagName("td"));
             if (rows.Count == 1 && firstRowItems.Count == 1)
@@ -233,9 +295,7 @@ namespace EduSohoClassTest.Pages
                 {
                     try
                     {
-                        wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-                        wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.XPath("/html/body/div[2]/div/div[2]/form/div[2]/button")));
-                        string s = webDriver.FindElement(By.XPath("/html/body/div[2]/div/div[2]/div[2]/nav/span")).Text;
+                        string s = Helps.GetTextFromElement(webDriver, By.XPath("/html/body/div[2]/div/div[2]/div[2]/nav/span"));
                         int startIndex = s.IndexOf('/')+1;
                         string totalNumberStr = s.Substring(startIndex, s.Length - startIndex).Trim();
                         return totalNumberStr;

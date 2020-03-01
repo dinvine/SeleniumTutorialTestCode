@@ -8,30 +8,49 @@ using TechTalk.SpecFlow;
 namespace EduSohoClassTest.Steps
 {
     [Binding]
-    public class UserLoginSteps
+    public class UserLoginSteps : BasePageSteps
     {
-        public IWebDriver driver;
-        readonly ScenarioContext context;
-        CommonSteps commonSteps;
         EduSohoHomePage homePage;
         EduSohoLoginPage loginPage;
         EduSohoListPage listPage;
         EduSohoPWDRestPage pwdResetPage;
 
-        public UserLoginSteps(ScenarioContext scenarioContext)
+        public UserLoginSteps(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-            context = scenarioContext;
-            if(scenarioContext.ContainsKey("webdriver"))
-                driver = (IWebDriver)scenarioContext["webdriver"];
-            else
-            {
-                string baseURL = Helps.GetConfigurationValue("EduSohoHomePageURL");
-                driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl(baseURL);
-                context["webdriver"] = driver;
-            }
-            commonSteps = new CommonSteps(scenarioContext);
+            homePage = new EduSohoHomePage(context);
+        }
+        [Given(@"I click login buton and jump to login page")]
+        public void GivenIClickLoginButonAndJumpToLoginPage()
+        {
+            homePage.LoginLinkClick();
+            loginPage = new EduSohoLoginPage(context);
+            context["webdriver"] = driver;
+        }
+        [Given(@"I success to  enter ""(.*)"" username and ""(.*)"" password to log in")]
+        public void GivenISuccessToEnterUsernameAndPasswordToLogIn(string p0, string p1)
+        {
+            GivenIClickLoginButonAndJumpToLoginPage();
+            WhenIEnterUsernameAndPasswordToLogin(p0, p1);            
+        }
 
+        [When(@"hover on the avatar and click 退出登陆")]
+        public void WhenIClick退出登陆()
+        {
+            homePage.LogOut();
+        }
+
+        [Then(@"I should success to logout of the web")]
+        public void ThenIShouldSuccessToLogoutOfTheWeb()
+        {
+            homePage.SuccessLogout();
+        }
+
+
+        [When(@"I enter ""(.*)"" username and ""(.*)"" password to login")]
+        public void WhenIEnterUsernameAndPasswordToLogin(string p0, string p1)
+        {
+            loginPage.Login(p0, p1);
+            homePage = new EduSohoHomePage(context);
         }
 
         [Then(@"I can click the 更多课程 and jump to course page")]

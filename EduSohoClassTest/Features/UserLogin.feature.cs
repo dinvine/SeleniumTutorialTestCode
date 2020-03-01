@@ -108,7 +108,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
- testRunner.Given("I am in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am in \"EduSohoHomePageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
  testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -158,7 +158,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 19
- testRunner.Given("I am in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am in \"EduSohoHomePageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 20
  testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -211,7 +211,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 30
- testRunner.Given("I am in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am in \"EduSohoHomePageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 31
  testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -229,7 +229,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("should give correct message for invalid email entered in pwd reset page")]
         [NUnit.Framework.TestCaseAttribute("aa.com", "请输入有效的电子邮件地址", "invalid", null)]
-        [NUnit.Framework.TestCaseAttribute("aa@bb", "请输入有效的电子邮件地址", "unexisting", null)]
+        [NUnit.Framework.TestCaseAttribute("aa@bb", "该邮箱地址没有注册过帐号", "unexisting", null)]
         [NUnit.Framework.TestCaseAttribute("aa@bb.bb.", "请输入有效的电子邮件地址", "invalid", null)]
         [NUnit.Framework.TestCaseAttribute("aa@aa.com", "该邮箱地址没有注册过帐号", "unexisting", null)]
         public virtual void ShouldGiveCorrectMessageForInvalidEmailEnteredInPwdResetPage(string emailForPWDReset, string msg, string fieldName, string[] exampleTags)
@@ -257,7 +257,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 39
- testRunner.Given("I am in homepage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I am in \"EduSohoHomePageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 40
  testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

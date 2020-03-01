@@ -8,13 +8,53 @@ Scenario: Should be able to search articles
 	Given I success to  enter "admin" username and "5EstafeyEtre" password to log in
 	#| username	| password |
 	#| admin		| 5EstafeyEtre |
-	And hover on the avatar and click "管理后台"
-	And I click linktext "运营"
-	When I select "<订单类型>"订单类型 in the left menue
-	And I enter "<起始时间>", "<结束时间>", "<订单状态>", "<支付方式>", "<关键词类型>", "<关键词>" into the conditions 
+	And I am in admin article page
+	And I enter "<所属栏目>", "<标题关键词>", "<属性>", "<发布状态>" to the conditions 
 	And I click search button
-	Then there should be <结果数量> search results
+	Then results table should comform to the  "<所属栏目>", "<标题关键词>", "<属性结果>", "<发布状态>" conditions.
 Examples: 
-| 订单类型 | 起始时间				| 结束时间			| 订单状态	|支付方式	| 关键词类型	| 关键词					| 结果数量	|
-| 课程订单 | 2017-12-12 22:15	| 2020-12-12 22:15	|订单状态	|支付方式	|课程名称	|						| 11		|
-| 课程订单 |						|					| 已付款		|支付方式	|课程名称	|						| 57		|
+| 所属栏目 | 标题关键词	| 属性	|属性结果| 发布状态	|
+| 行业资讯 |				|		|		|			|
+| 行业资讯 |	MOOC		|		|		|			|
+| 行业资讯 |	MOOC		|		|		|			|
+| 行业资讯 |	MOOC		| 头条	|头		|			|
+| 行业资讯 |	MOOC		| 头条	|头		|	已发布	|
+
+@positive
+Scenario: Should be able to modify the Publish Status of articles
+	Given I success to  enter "admin" username and "5EstafeyEtre" password to log in
+	And I am in admin article page
+	And I click search button
+	When I  select "<修改动作>" action  to the first  "<状态>" publish value record and click the right checkbox
+	Then the 状态 colname of the checked record should change to "<新状态>" value
+Examples: 
+| 状态	| 修改动作	| 新状态	|
+| 已发布	|	取消发布	|未发布	|
+| 未发布	|	发布		|已发布	|
+
+
+@positive
+Scenario: Should be able to add a category to articles
+	Given I success to  enter "admin" username and "5EstafeyEtre" password to log in
+	And I am in admin article page
+	And I click linktext "栏目管理"
+	And I delete the article category coded "<栏目编码>" 
+	When I click 添加栏目 button
+	And enter "<栏目名称>"," <栏目编码>","<父栏目>","<SEO标题>","<SEO关键字>","<SEO描述>","<启用>" to the article category add page
+	And click 添加 on  article category add page
+	Then new "<栏目编码>" caterory code should be found in the article category page
+Examples: 
+| 栏目名称	| 栏目编码		| 父栏目			| SEO标题		|SEO关键字	| SEO描述					| 启用	|
+| nz env	| environment01	| EduSoho		|good for all	|env		|new zealand env reports	|	是	|
+
+
+@positive
+Scenario: Should be able to modify the name of article category
+	Given I success to  enter "admin" username and "5EstafeyEtre" password to log in
+	And I am in admin article page
+	And I click linktext "栏目管理"
+	When I modify the "<栏目名称>" category name to "<new栏目名称>" new one	
+	Then  "<new栏目名称>" new category name should be found in the article category page
+Examples: 
+| 栏目名称	| new栏目名称		|	
+| nz env	| DanielWriteDate	|

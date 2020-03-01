@@ -8,28 +8,14 @@ using TechTalk.SpecFlow;
 namespace EduSohoClassTest.Steps
 {
     [Binding]
-    public class PersonalSettingsSteps//:BasePageSteps
+    public class PersonalSettingsSteps : BasePageSteps
     {
-        public IWebDriver driver;
-        public ScenarioContext context;
-        EduSohoHomePage homePage;
-        EduSohoPersonalSettingsLeftMenu leftMenuPage;
         EduSohoPersonalSettingsAvatarPage avatarPage;
         EduSohoPersonalSettingsBasicInfoPage basicInfoPage;
-        PersonalSettingsSteps(ScenarioContext scenarioContext)//:base(scenarioContext)
+        PersonalSettingsSteps(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-            context = scenarioContext;
-            if (scenarioContext.ContainsKey("webdriver"))
-                driver = (IWebDriver)scenarioContext["webdriver"];
-            else
-            {
-                string baseURL = Helps.GetConfigurationValue("EduSohoHomePageURL");
-                driver = new FirefoxDriver();
-                driver.Navigate().GoToUrl(baseURL);
-                context["webdriver"] = driver;
-            }
-           
-            leftMenuPage = new EduSohoPersonalSettingsLeftMenu(context);
+            avatarPage = new EduSohoPersonalSettingsAvatarPage(scenarioContext);
+            //basicInfoPage = new EduSohoPersonalSettingsBasicInfoPage(scenarioContext);
         }
 
            
@@ -37,7 +23,7 @@ namespace EduSohoClassTest.Steps
         [Given(@"click on the 头像设置")]
         public void GivenClickOnThe头像设置()
         {
-            leftMenuPage.AvatarAddClick();
+            avatarPage.AvatarAddClick();
             avatarPage = new EduSohoPersonalSettingsAvatarPage(context);
         }
     
@@ -63,7 +49,7 @@ namespace EduSohoClassTest.Steps
         [Given(@"click on the 基础信息")]
         public void GivenClickOnThe基础信息()
         {
-            leftMenuPage.BasicInfoClick();
+            avatarPage.BasicInfoClick();
             basicInfoPage = new EduSohoPersonalSettingsBasicInfoPage(context);
         }
 

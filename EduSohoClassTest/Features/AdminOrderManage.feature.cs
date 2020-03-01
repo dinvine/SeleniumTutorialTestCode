@@ -82,11 +82,6 @@ namespace EduSohoClassTest.Features
         [NUnit.Framework.TestCaseAttribute("课程订单", "", "", "订单状态", "支付宝", "课程名称", "", "暂无订单记录", null)]
         [NUnit.Framework.TestCaseAttribute("课程订单", "", "", "订单状态", "支付方式", "课程名称", "EduSoHo", "19", null)]
         [NUnit.Framework.TestCaseAttribute("课程订单", "", "", "订单状态", "支付方式", "课程名称", "", "57", null)]
-        [NUnit.Framework.TestCaseAttribute("班级订单", "2017-12-12 22:15", "2020-12-12 22:15", "订单状态", "支付方式", "班级编号", "", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "已付款", "支付方式", "班级编号", "", "5", null)]
-        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付宝", "班级编号", "", "暂无订单记录", null)]
-        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付方式", "订单号", "CR2015063016591966296", "1", null)]
-        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付方式", "班级编号", "", "5", null)]
         public virtual void ShouldBeAbleToSearchCourseOrder(string 订单类型, string 起始时间, string 结束时间, string 订单状态, string 支付方式, string 关键词类型, string 关键词, string 结果数量, string[] exampleTags)
         {
             string[] @__tags = new string[] {
@@ -124,7 +119,7 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("hover on the avatar and click \"管理后台\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.And("I am in admin  order manage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I click 订单 in admin  order manage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
  testRunner.When(string.Format("I select \"{0}\"订单类型 in the left menue", 订单类型), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -136,6 +131,69 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 16
+ testRunner.Then(string.Format("there should be {0} search results", 结果数量), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Should be able to search class order")]
+        [NUnit.Framework.CategoryAttribute("positive")]
+        [NUnit.Framework.TestCaseAttribute("班级订单", "2017-12-12 22:15", "2020-12-12 22:15", "订单状态", "支付方式", "班级编号", "", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "已付款", "支付方式", "班级编号", "", "5", null)]
+        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付宝", "班级编号", "", "暂无订单记录", null)]
+        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付方式", "订单号", "CR2015063016591966296", "1", null)]
+        [NUnit.Framework.TestCaseAttribute("班级订单", "", "", "订单状态", "支付方式", "班级编号", "", "5", null)]
+        public virtual void ShouldBeAbleToSearchClassOrder(string 订单类型, string 起始时间, string 结束时间, string 订单状态, string 支付方式, string 关键词类型, string 关键词, string 结果数量, string[] exampleTags)
+        {
+            string[] @__tags = new string[] {
+                    "positive"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should be able to search class order", null, @__tags);
+#line 26
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 27
+ testRunner.Given("I success to  enter \"admin\" username and \"5EstafeyEtre\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 30
+ testRunner.And("hover on the avatar and click \"管理后台\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 31
+ testRunner.And("I click 订单 in admin  order manage page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 32
+ testRunner.When(string.Format("I select \"{0}\"订单类型 in the left menue", 订单类型), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 33
+ testRunner.And(string.Format("I enter \"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\" into the conditions", 起始时间, 结束时间, 订单状态, 支付方式, 关键词类型, 关键词), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 34
+ testRunner.And("I click search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 35
  testRunner.Then(string.Format("there should be {0} search results", 结果数量), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

@@ -1,10 +1,14 @@
-﻿using NUnit.Framework;
+﻿using AutoItX3Lib;
+using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading;
+
 namespace EduSohoClassTest.Common
 {
     public enum SexType
@@ -12,8 +16,6 @@ namespace EduSohoClassTest.Common
         Male,
         Female
     }
-
-
 
     public static class Helps
     {
@@ -41,13 +43,202 @@ namespace EduSohoClassTest.Common
             Assert.AreEqual(expectMsg, msgShown, "test failed due to Error message of " + labelName + " shown in register page");
         }
 
-        public static void LinkTextClick(IWebDriver dr,string linkText)
+        public static IWebDriver ClickOperation(IWebDriver dr,By by, int seconds=10)
         {
-            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText(linkText));
-            dr.FindElement(By.LinkText(linkText)).Click();
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            dr.FindElement(by).Click();
+            Thread.Sleep(300);
+            return dr;
         }
-    }
+
+
+
+        public static IWebDriver SubmitOperation(IWebDriver dr, By by, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            dr.FindElement(by).Submit();
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static IWebDriver InputClearAndStringOperation(IWebDriver dr, By by,string input, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            dr.FindElement(by).Clear();
+            dr.FindElement(by).SendKeys(input);
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static IWebDriver InputAddingStringOperation(IWebDriver dr, By by, string input, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            dr.FindElement(by).SendKeys(input);
+            Thread.Sleep(300);
+            return dr;
+        }
+
+
+        public static IWebDriver SelectOperation(IWebDriver dr, By by, string selectTxt, int seconds = 10)
+        {
+            if(selectTxt!="")
+            {
+                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+                //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));            
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(by));
+                SelectElement selectElement = new SelectElement(dr.FindElement(by));
+                selectElement.SelectByText(selectTxt);
+            }
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static IWebDriver SelectFromRadioOperation(IWebDriver dr, By by, string selectTxt, int seconds = 10)
+        {
+            if (selectTxt != "")
+            {
+                WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+                wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+                IList<IWebElement> elements = dr.FindElements(by);
+                foreach (var element in elements)
+                {
+                    if (element.Text.Trim() == selectTxt)
+                    {
+                        element.Click();
+                        break;
+                    }
+                }
+            }
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static IWebDriver SelectFromChkbxOperation(IWebDriver dr, By by, string[] selectTxtList, int seconds = 10)
+        {
+
+            IList<IWebElement> elements = GetIWebElementsBy(dr, by);
+            foreach(var ele in elements)
+            {
+                if (selectTxtList.Contains(ele.Text) ^ ele.Selected)
+                    ele.Click();
+            }
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static IWebDriver SelectFromChkbxOperationByIndex(IWebDriver dr, By by, int index,Boolean status, int seconds = 10)
+        {
+
+            IList<IWebElement> elements = GetIWebElementsBy(dr, by);          
+            if (status ^ elements[index].Selected)
+                elements[index].Click();
+            Thread.Sleep(300);
+            return dr;
+        }
+
+        public static string GetTextFromElement(IWebDriver dr, By by, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            
+            return dr.FindElement(by).Text.Trim();
+        }
+
+        public static IWebElement GetIWebElementBy(IWebDriver dr, By by, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            return dr.FindElement(by);
+        }
+
+        public static IList<IWebElement> GetIWebElementsBy(IWebDriver dr, By by, int seconds = 10)
+        {
+            WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
+            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
+            return dr.FindElements(by);
+        }
+
+        public static void confirmDialog(string title, string path, string confirm)
+        {
+
+            AutoItX3 autoIt = new AutoItX3();
+            autoIt.WinActivate(title);
+            autoIt.Send(path);
+            Thread.Sleep(1000);
+            autoIt.Send(confirm);
+            Thread.Sleep(1000);
+        }
+
+        
+
+        public static void clickBlankArea(IWebDriver dr)
+        {
+            Actions actions = new Actions(dr);
+            actions.MoveByOffset(0, 0).Click().Build().Perform();
+            Thread.Sleep(300);
+        }
+
+        public static String getAbsoluteXPath(IWebDriver driver,IWebElement element)
+        {
+            return (String)((IJavaScriptExecutor)driver).ExecuteScript(
+                    "function absoluteXPath(element) {" +
+                            "var comp, comps = [];" +
+                            "var parent = null;" +
+                            "var xpath = '';" +
+                            "var getPos = function(element) {" +
+                            "var position = 1, curNode;" +
+                            "if (element.nodeType == Node.ATTRIBUTE_NODE) {" +
+                            "return null;" +
+                            "}" +
+                            "for (curNode = element.previousSibling; curNode; curNode = curNode.previousSibling){ "+
+                        "if (curNode.nodeName == element.nodeName) {" +
+                        "++position;" +
+                        "}" +
+                        "}" +
+                        "return position;" +
+                        "};" +
+                        "if (element instanceof Document) {" +
+                        "return '/';" +
+                        "}" +
+                        "for (; element && !(element instanceof Document); element = element.nodeType ==Node.ATTRIBUTE_NODE? element.ownerElement: element.parentNode) { "+
+                        "comp = comps[comps.length] = {};" +
+                        "switch (element.nodeType) {" +
+                        "case Node.TEXT_NODE:" +
+                        "comp.name = 'text()';" +
+                        "break;" +
+                        "case Node.ATTRIBUTE_NODE:" +
+                        "comp.name = '@' + element.nodeName;" +
+                        "break;" +
+                        "case Node.PROCESSING_INSTRUCTION_NODE:" +
+                        "comp.name = 'processing-instruction()';" +
+                        "break;" +
+                        "case Node.COMMENT_NODE:" +
+                        "comp.name = 'comment()';" +
+                        "break;" +
+                        "case Node.ELEMENT_NODE:" +
+                        "comp.name = element.nodeName;" +
+                        "break;" +
+                        "}" +
+                        "comp.position = getPos(element);" +
+                        "}" +
+
+                        "for (var i = comps.length - 1; i >= 0; i--) {" +
+                        "comp = comps[i];" +
+                        "xpath += '/' + comp.name.toLowerCase();" +
+                        "if (comp.position !== null) {" +
+                        "xpath += '[' + comp.position + ']';" +
+                        "}" +
+                        "}" +
+                        "return xpath;" +
+                    "} return absoluteXPath(arguments[0]);", element);
+                }
+
+
+            }
 
     public class DatacollectionSimpleTBL
     {

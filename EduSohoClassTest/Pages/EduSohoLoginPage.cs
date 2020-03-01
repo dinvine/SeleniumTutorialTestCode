@@ -3,14 +3,13 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
+using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoLoginPage
+    public class EduSohoLoginPage: EduSohuBasePage
     {
 
-        IWebDriver webDriver;
-        ScenarioContext context;
         public IWebElement txtBoxUSR => webDriver.FindElement(By.Id("login_username"));
 
         public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
@@ -29,19 +28,16 @@ namespace EduSohoClassTest.Pages
         //    public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
         //*[@id="login-form"]/div[4]/button
 
-        public EduSohoLoginPage(ScenarioContext scenarioContext)
+        public EduSohoLoginPage(ScenarioContext scenarioContext) : base(scenarioContext)
         {
-            webDriver = (IWebDriver)scenarioContext["webdriver"];
-            context = scenarioContext;
         }
         /// <summary>
         /// input the username
         /// </summary>
         public void usernameEnter(string username)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("login_username")));
-            txtBoxUSR.SendKeys(username);
+
+            Helps.InputClearAndStringOperation(webDriver, By.Id("login_username"), username);
         }
 
 
@@ -50,9 +46,7 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void passwordEnter(string password)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("login_password")));
-            txtBoxPWD.SendKeys(password);
+            Helps.InputClearAndStringOperation(webDriver, By.Id("login_password"), password);
             txtBoxPWD.Click();
         }
 
@@ -62,9 +56,7 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void btnLoginClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("js-btn-login")));
-            btnLogin.Click();
+            Helps.ClickOperation(webDriver, By.ClassName("js-btn-login"));
         }
 
         public void Login(string username,string password)
@@ -77,11 +69,8 @@ namespace EduSohoClassTest.Pages
 
         public void chkBoxRememberMeClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Name("_remember_me")));
-
-            if (ChkBoxRememberMe.Selected == false)
-                ChkBoxRememberMe.Click();
+            string[] strlist = { "" };
+            Helps.SelectFromChkbxOperation(webDriver, By.Name("_remember_me"), strlist);
         }
 
         public void LoginErrMsgDisplayed(string expectStr)

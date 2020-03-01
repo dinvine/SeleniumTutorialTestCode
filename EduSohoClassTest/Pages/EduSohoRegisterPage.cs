@@ -8,34 +8,30 @@ using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages
 {
-    public class EduSohoRegisterPage
+    public class EduSohoRegisterPage:EduSohuBasePage
     {
+        //public IWebElement txtEmail => webDriver.FindElement(By.Id("register_email"));
+        //public IWebElement labelEmail => webDriver.FindElement(By.Id("register_email-error"));        
 
-        IWebDriver webDriver;
-        ScenarioContext context;
-        public IWebElement txtEmail => webDriver.FindElement(By.Id("register_email"));
-        public IWebElement labelEmail => webDriver.FindElement(By.Id("register_email-error"));        
+        //public IWebElement txtUsername => webDriver.FindElement(By.Id("register_nickname"));
+        //public IWebElement labelUsername => webDriver.FindElement(By.Id("register_nickname-error"));
 
-        public IWebElement txtUsername => webDriver.FindElement(By.Id("register_nickname"));
-        public IWebElement labelUsername => webDriver.FindElement(By.Id("register_nickname-error"));
+        //public IWebElement txtPassword => webDriver.FindElement(By.Id("register_password"));
+        //public IWebElement labelPassword => webDriver.FindElement(By.Id("register_password-error"));
 
-        public IWebElement txtPassword => webDriver.FindElement(By.Id("register_password"));
-        public IWebElement labelPassword => webDriver.FindElement(By.Id("register_password-error"));
+        //public IWebElement txtCaptchaCode => webDriver.FindElement(By.Id("captcha_code"));
+        //public IWebElement labelCaptchaCode => webDriver.FindElement(By.Id("captcha_code-error"));
 
-        public IWebElement txtCaptchaCode => webDriver.FindElement(By.Id("captcha_code"));
-        public IWebElement labelCaptchaCode => webDriver.FindElement(By.Id("captcha_code-error"));
+        //public IWebElement chkbxUserterms => webDriver.FindElement(By.Id("user_terms"));
+        //public IWebElement labelUserterms => webDriver.FindElement(By.Id("userterms-error"));
 
-        public IWebElement chkbxUserterms => webDriver.FindElement(By.Id("user_terms"));
-        public IWebElement labelUserterms => webDriver.FindElement(By.Id("userterms-error"));
-
-        public IWebElement btnRegister => webDriver.FindElement(By.Id("register-btn"));
+        //public IWebElement btnRegister => webDriver.FindElement(By.Id("register-btn"));
 
 
 
-        public EduSohoRegisterPage(ScenarioContext scenarioContext)
+        public EduSohoRegisterPage(ScenarioContext scenarioContext):base(scenarioContext)
         {
-            webDriver = (IWebDriver)scenarioContext["webdriver"];
-            context = scenarioContext;
+
         }
 
         /// <summary>
@@ -43,9 +39,8 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void UsernameEnter(string username)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_nickname")));
-            txtUsername.SendKeys(username);
+            Helps.InputClearAndStringOperation(webDriver, By.Id("register_nickname"), username);
+            Helps.InputAddingStringOperation(webDriver, By.Id("register_nickname"), Keys.Enter);
         }
 
         /// <summary>
@@ -53,35 +48,32 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void EmailEnter(string email)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_email")));
-            txtEmail.SendKeys(email);
+
+            Helps.InputClearAndStringOperation(webDriver, By.Id("register_email"), email);
+            Helps.InputAddingStringOperation(webDriver, By.Id("register_email"), Keys.Enter);
+
         }
 
         public void PasswordEnter(string password)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register_password")));
-            txtPassword.SendKeys(password);
+
+            Helps.InputClearAndStringOperation(webDriver, By.Id("register_password"), password);
+            Helps.InputAddingStringOperation(webDriver, By.Id("register_email"), Keys.Enter);
+
+
         }
 
         public void CaptchaCodeEnter(string captureCode)
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("captcha_code")));
-            txtCaptchaCode.SendKeys(captureCode);
+
+            Helps.InputClearAndStringOperation(webDriver, By.Id("captcha_code"), captureCode);
+            Helps.InputAddingStringOperation(webDriver, By.Id("captcha_code"), Keys.Enter);
         }
 
         public void UserTermsSelect(string status ="true")
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("user_terms")));
-            if(status=="true")
-                if (chkbxUserterms.Selected == false)
-                    chkbxUserterms.Click();
-            if(status == "false")
-                if (chkbxUserterms.Selected == true)
-                    chkbxUserterms.Click();
+            Helps.SelectFromChkbxOperationByIndex(webDriver, By.Id("user_terms"),0, false);
+            
         }
                
         /// <summary>
@@ -89,9 +81,7 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void RegisterBtnClick()
         {
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("register-btn")));
-            btnRegister.Click();
+            Helps.ClickOperation(webDriver, By.Id("register-btn"));
         }
 
         public  void clickBlankArea()
