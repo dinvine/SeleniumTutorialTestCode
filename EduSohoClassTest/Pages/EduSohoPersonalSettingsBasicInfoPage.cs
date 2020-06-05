@@ -1,11 +1,9 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using NUnit.Framework;
 using TechTalk.SpecFlow;
-using OpenQA.Selenium.Interactions;
 using EduSohoClassTest.Common;
-using System.Collections.Generic;
+using EduSohoClassTest.Models;
 
 namespace EduSohoClassTest.Pages
 {
@@ -81,7 +79,7 @@ namespace EduSohoClassTest.Pages
         public void TruenameEnter(string inputStr)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_truename"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_truename"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_truename"), Keys.Tab);
         }
 
         /// <summary>
@@ -108,7 +106,7 @@ namespace EduSohoClassTest.Pages
         public void IdcardEnter(string inputStr)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_idcard"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_idcard"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_idcard"), Keys.Tab);
 
         }
 
@@ -120,7 +118,7 @@ namespace EduSohoClassTest.Pages
         {
 
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_mobile"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_mobile"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_mobile"), Keys.Tab);
 
         }
 
@@ -134,7 +132,7 @@ namespace EduSohoClassTest.Pages
         {
 
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_company"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_company"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_company"), Keys.Tab);
 
         }
 
@@ -146,7 +144,7 @@ namespace EduSohoClassTest.Pages
         {
 
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_job"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_job"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_job"), Keys.Tab);
         }
 
         /// <summary>
@@ -156,7 +154,7 @@ namespace EduSohoClassTest.Pages
         public void TitleEnter(string inputStr)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_title"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_title"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_title"), Keys.Tab);
         }
 
         /// <summary>
@@ -167,7 +165,7 @@ namespace EduSohoClassTest.Pages
         {
 
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_signature"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_signature"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_signature"), Keys.Tab);
         }
 
         /// <summary>
@@ -184,6 +182,7 @@ namespace EduSohoClassTest.Pages
             //txtIntroduction.Clear();
             //txtIntroduction.SendKeys(inputStr);
             Helps.InputClearAndStringOperation(webDriver, By.ClassName("cke_editable_themed"), inputStr);
+            Helps.InputAddingStringOperation(webDriver, By.ClassName("cke_editable_themed"), Keys.Tab);
             webDriver.SwitchTo().ParentFrame();
         }
 
@@ -194,7 +193,7 @@ namespace EduSohoClassTest.Pages
         public void SiteEnter(string inputStr)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_site"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_site"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_site"), Keys.Tab);
         }
 
         /// <summary>
@@ -205,7 +204,7 @@ namespace EduSohoClassTest.Pages
         {
 
             Helps.InputClearAndStringOperation(webDriver, By.Id("weibo"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("weibo"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("weibo"), Keys.Tab);
         }
 
         /// <summary>
@@ -215,9 +214,23 @@ namespace EduSohoClassTest.Pages
         public void QQEnter(string inputStr)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("profile_qq"), inputStr);
-            Helps.InputAddingStringOperation(webDriver, By.Id("profile_qq"), Keys.Enter);
+            Helps.InputAddingStringOperation(webDriver, By.Id("profile_qq"), Keys.Tab);
         }
+        public void UpdatePersonalInfo(PersonalInfo person)
+        {
 
+            TruenameEnter(person.Name);
+            SexSelect(person.Gender);
+            IdcardEnter(person.ID);
+            JobEnter(person.Job);
+            MobileEnter(person.Mobile);
+            SiteEnter(person.MySpace);
+            SignatureEnter(person.Signature);
+            IntroductionEnter(person.SelfIntro);
+            TitleEnter(person.Title);
+            WeiboEnter(person.Weibo);
+            QQEnter(person.QQ);
+        }
         /// <summary>
         //保存
         //public IWebElement btnSave => webDriver.FindElement(By.Id("profile-save-btn"));

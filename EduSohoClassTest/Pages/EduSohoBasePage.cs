@@ -17,6 +17,8 @@ namespace EduSohoClassTest.Pages
     /// </summary>
     public class EduSohuBasePage
     {
+
+
         public IWebDriver webDriver;
         public ScenarioContext context;
         public EduSohuBasePage(ScenarioContext scenarioContext)
@@ -24,5 +26,8 @@ namespace EduSohoClassTest.Pages
             webDriver = (IWebDriver)scenarioContext["webdriver"];
             context = scenarioContext;
         }
+
+
+
     }
 }

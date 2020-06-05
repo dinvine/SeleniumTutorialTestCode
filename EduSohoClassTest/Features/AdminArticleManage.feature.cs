@@ -82,7 +82,7 @@ namespace EduSohoClassTest.Features
         [NUnit.Framework.TestCaseAttribute("行业资讯", "MOOC", "", "", "", null)]
         [NUnit.Framework.TestCaseAttribute("行业资讯", "MOOC", "头条", "头", "", null)]
         [NUnit.Framework.TestCaseAttribute("行业资讯", "MOOC", "头条", "头", "已发布", null)]
-        public virtual void ShouldBeAbleToSearchArticles(string 所属栏目, string 标题关键词, string 属性, string 属性结果, string 发布状态, string[] exampleTags)
+        public virtual void ShouldBeAbleToSearchArticles(string categoryName, string titleKeyword, string property, string propertyShow, string publishStatus, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "positive"};
@@ -119,13 +119,13 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I am in admin article page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 12
- testRunner.And(string.Format("I enter \"{0}\", \"{1}\", \"{2}\", \"{3}\" to the conditions", 所属栏目, 标题关键词, 属性, 发布状态), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I enter \"{0}\", \"{1}\", \"{2}\", \"{3}\" to the conditions", categoryName, titleKeyword, property, publishStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
  testRunner.And("I click search button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
- testRunner.Then(string.Format("results table should comform to the  \"{0}\", \"{1}\", \"{2}\", \"{3}\" conditions.", 所属栏目, 标题关键词, 属性结果, 发布状态), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("results table should comform to the  \"{0}\", \"{1}\", \"{2}\", \"{3}\" conditions.", categoryName, titleKeyword, propertyShow, publishStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -136,7 +136,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.TestCaseAttribute("已发布", "取消发布", "未发布", null)]
         [NUnit.Framework.TestCaseAttribute("未发布", "发布", "已发布", null)]
-        public virtual void ShouldBeAbleToModifyThePublishStatusOfArticles(string 状态, string 修改动作, string 新状态, string[] exampleTags)
+        public virtual void ShouldBeAbleToModifyThePublishStatusOfArticles(string publishStatus, string action, string newStatus, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "positive"};
@@ -177,10 +177,10 @@ this.ScenarioInitialize(scenarioInfo);
 #line hidden
 #line 28
  testRunner.When(string.Format("I  select \"{0}\" action  to the first  \"{1}\" publish value record and click the ri" +
-                            "ght checkbox", 修改动作, 状态), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+                            "ght checkbox", action, publishStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.Then(string.Format("the 状态 colname of the checked record should change to \"{0}\" value", 新状态), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("the 状态 colname of the checked record should change to \"{0}\" value", newStatus), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -190,7 +190,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Should be able to add a category to articles")]
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.TestCaseAttribute("nz env", "environment01", "EduSoho", "good for all", "env", "new zealand env reports", "是", null)]
-        public virtual void ShouldBeAbleToAddACategoryToArticles(string 栏目名称, string 栏目编码, string 父栏目, string sEO标题, string sEO关键字, string sEO描述, string 启用, string[] exampleTags)
+        public virtual void ShouldBeAbleToAddACategoryToArticles(string categoryName, string categoryCode, string parentCategory, string sEOTitle, string sEOKeyword, string sEODescription, string enable, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "positive"};
@@ -230,20 +230,20 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click linktext \"栏目管理\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 41
- testRunner.And(string.Format("I delete the article category coded \"{0}\"", 栏目编码), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And(string.Format("I delete the article category coded \"{0}\"", categoryCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 42
  testRunner.When("I click 添加栏目 button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 43
  testRunner.And(string.Format("enter \"{0}\",\" {1}\",\"{2}\",\"{3}\",\"{4}\",\"{5}\",\"{6}\" to the article category add page" +
-                            "", 栏目名称, 栏目编码, 父栏目, sEO标题, sEO关键字, sEO描述, 启用), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                            "", categoryName, categoryCode, parentCategory, sEOTitle, sEOKeyword, sEODescription, enable), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 44
  testRunner.And("click 添加 on  article category add page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 45
- testRunner.Then(string.Format("new \"{0}\" caterory code should be found in the article category page", 栏目编码), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("new \"{0}\" caterory code should be found in the article category page", categoryCode), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -253,7 +253,7 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Should be able to modify the name of article category")]
         [NUnit.Framework.CategoryAttribute("positive")]
         [NUnit.Framework.TestCaseAttribute("nz env", "DanielWriteDate", null)]
-        public virtual void ShouldBeAbleToModifyTheNameOfArticleCategory(string 栏目名称, string new栏目名称, string[] exampleTags)
+        public virtual void ShouldBeAbleToModifyTheNameOfArticleCategory(string categoryName, string newCategoryName, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "positive"};
@@ -293,10 +293,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.And("I click linktext \"栏目管理\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 56
- testRunner.When(string.Format("I modify the \"{0}\" category name to \"{1}\" new one", 栏目名称, new栏目名称), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When(string.Format("I modify the \"{0}\" category name to \"{1}\" new one", categoryName, newCategoryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 57
- testRunner.Then(string.Format("\"{0}\" new category name should be found in the article category page", new栏目名称), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then(string.Format("\"{0}\" new category name should be found in the article category page", newCategoryName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

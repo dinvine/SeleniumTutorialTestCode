@@ -1,4 +1,5 @@
 ﻿using EduSohoClassTest.Common;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using TechTalk.SpecFlow;
 
@@ -25,5 +26,11 @@ namespace EduSohoClassTest.Steps
             Helps.ClickOperation(driver,by);
             context["webdriver"] = driver;
         }
+        [Then(@"I can see ""(.*)"" on the page")]
+        public void ThenICanSeeOnThePage(string p0)
+        {
+            Assert.IsTrue(driver.PageSource.Contains(p0));
+        }
+
     }
 }

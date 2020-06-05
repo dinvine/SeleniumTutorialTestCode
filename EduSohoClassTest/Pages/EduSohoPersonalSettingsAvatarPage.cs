@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;   
 using TechTalk.SpecFlow;
-using AutoItX3Lib;
+using AutoIt;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;
@@ -14,7 +14,7 @@ namespace EduSohoClassTest.Pages
     {
 //        IWebDriver webDriver;
 //        ScenarioContext context;
-        public IWebElement uploadNewAvatarBtn => webDriver.FindElement(By.Id("upload-picture-btn"));
+        //public IWebElement uploadNewAvatarBtn => webDriver.FindElement(By.Id("upload-picture-btn"));
         public IWebElement confirmNewAvatarBtn => webDriver.FindElement(By.Id("upload-avatar-btn"));
         
         public EduSohoPersonalSettingsAvatarPage(ScenarioContext scenarioContext):base(scenarioContext)
@@ -34,12 +34,12 @@ namespace EduSohoClassTest.Pages
         /// </summary>
         public void SelectFileForAvatar()
         {
-            AutoItX3 autoIt = new AutoItX3();
-            autoIt.WinActivate("File Upload");
-            autoIt.Send(@"d:\strawberry2.jpg");
-            Thread.Sleep(1000);
-            autoIt.Send("{ENTER}");
-            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
+            AutoItX.WinActivate("File Upload");
+            Thread.Sleep(500);
+            AutoItX.Send(@"d:\strawberry2.jpg");
+            Thread.Sleep(500);
+            AutoItX.Send("{ENTER}");
+            WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("upload-avatar-btn")));
 
             Actions builder = new Actions(webDriver);
@@ -56,7 +56,7 @@ namespace EduSohoClassTest.Pages
 
         public void UploadImageFinished()
         {
-            Assert.IsTrue(uploadNewAvatarBtn.Displayed, "test failed due to the process of uploading image to avatar is not completed.");
+            Assert.IsTrue(Helps.GetIWebElementBy(webDriver,By.Id("upload-picture-btn")).Displayed, "test failed due to the process of uploading image to avatar is not completed.");
         }
 
     }

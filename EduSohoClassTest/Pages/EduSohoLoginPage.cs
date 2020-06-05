@@ -10,13 +10,13 @@ namespace EduSohoClassTest.Pages
     public class EduSohoLoginPage: EduSohuBasePage
     {
 
-        public IWebElement txtBoxUSR => webDriver.FindElement(By.Id("login_username"));
+        //public IWebElement txtBoxUSR => webDriver.FindElement(By.Id("login_username"));
 
-        public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
+        //public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
 
-        public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
+        //public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
 
-        public IWebElement ChkBoxRememberMe => webDriver.FindElement(By.Name("_remember_me"));
+        //public IWebElement ChkBoxRememberMe => webDriver.FindElement(By.Name("_remember_me"));
 
         public IWebElement txtLoginErrMsg => webDriver.FindElement(By.XPath("/html/body/div[1]/div[1]/div/div[2]/form/div[1]"));
 
@@ -47,7 +47,7 @@ namespace EduSohoClassTest.Pages
         public void passwordEnter(string password)
         {
             Helps.InputClearAndStringOperation(webDriver, By.Id("login_password"), password);
-            txtBoxPWD.Click();
+            Helps.InputAddingStringOperation(webDriver, By.Id("login_password"), Keys.Tab);
         }
 
 

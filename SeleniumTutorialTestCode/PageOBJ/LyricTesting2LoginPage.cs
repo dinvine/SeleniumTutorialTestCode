@@ -10,15 +10,15 @@ namespace SeleniumTutorialTestCode.PageOBJ
 
         IWebDriver webDriver;
 
-        public IWebElement txtBoxUSR => webDriver.FindElement(By.Id("login_username"));
+        public IWebElement TxtBoxUSR => webDriver.FindElement(By.Id("login_username"));
 
-        public IWebElement txtBoxPWD => webDriver.FindElement(By.Id("login_password"));
+        public IWebElement TxtBoxPWD => webDriver.FindElement(By.Id("login_password"));
 
-        public IWebElement btnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
+        public IWebElement BtnLogin  => webDriver.FindElement(By.ClassName("js-btn-login"));
 
         public IWebElement ChkBoxRememberMe => webDriver.FindElement(By.Name("_remember_me"));
 
-        public IWebElement txtLoginErrMsg => webDriver.FindElement(By.XPath("/html/body/div[1]/div[1]/div/div[2]/form/div[1]"));
+        public IWebElement TxtLoginErrMsg => webDriver.FindElement(By.XPath("/html/body/div[1]/div[1]/div/div[2]/form/div[1]"));
 
         // public IWebElement btnLogin => webDriver.FindElement(By.XPath(@"/html/body/div[1]/div[1]/div/div[2]/form/div[4]/button"));
 
@@ -37,7 +37,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
         {
             WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("login_username")));
-            txtBoxUSR.SendKeys(username);
+            TxtBoxUSR.SendKeys(username);
         }
 
 
@@ -48,8 +48,8 @@ namespace SeleniumTutorialTestCode.PageOBJ
         {
             WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("login_password")));
-            txtBoxPWD.SendKeys(password);
-            txtBoxPWD.Click();
+            TxtBoxPWD.SendKeys(password);
+            TxtBoxPWD.Click();
         }
 
 
@@ -60,7 +60,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
         {
             WebDriverWait wait = new WebDriverWait(webDriver, TimeSpan.FromSeconds(5));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.ClassName("js-btn-login")));
-            btnLogin.Click();
+            BtnLogin.Click();
         }
 
         public void Login(string username,string password)
@@ -82,7 +82,7 @@ namespace SeleniumTutorialTestCode.PageOBJ
 
         public void LoginErrMsgDisplayed(string expectStr)
         {
-            Assert.AreEqual(expectStr, txtLoginErrMsg.Text, "test faled due to login error msg not displayed.");
+            Assert.AreEqual(expectStr, TxtLoginErrMsg.Text, "test faled due to login error msg not displayed.");
         }
     }
 }

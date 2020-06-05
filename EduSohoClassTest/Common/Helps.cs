@@ -1,4 +1,4 @@
-﻿using AutoItX3Lib;
+﻿//using AutoItX3Lib;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
@@ -48,7 +48,7 @@ namespace EduSohoClassTest.Common
             WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
             dr.FindElement(by).Click();
-            Thread.Sleep(300);
+//            Thread.Sleep(300);
             return dr;
         }
 
@@ -59,7 +59,7 @@ namespace EduSohoClassTest.Common
             WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
             dr.FindElement(by).Submit();
-            Thread.Sleep(300);
+            Thread.Sleep(200);
             return dr;
         }
 
@@ -69,7 +69,7 @@ namespace EduSohoClassTest.Common
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
             dr.FindElement(by).Clear();
             dr.FindElement(by).SendKeys(input);
-            Thread.Sleep(300);
+ //           Thread.Sleep(300);
             return dr;
         }
 
@@ -78,7 +78,7 @@ namespace EduSohoClassTest.Common
             WebDriverWait wait = new WebDriverWait(dr, TimeSpan.FromSeconds(seconds));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(by));
             dr.FindElement(by).SendKeys(input);
-            Thread.Sleep(300);
+ //           Thread.Sleep(300);
             return dr;
         }
 
@@ -93,7 +93,7 @@ namespace EduSohoClassTest.Common
                 SelectElement selectElement = new SelectElement(dr.FindElement(by));
                 selectElement.SelectByText(selectTxt);
             }
-            Thread.Sleep(300);
+//            Thread.Sleep(300);
             return dr;
         }
 
@@ -126,7 +126,7 @@ namespace EduSohoClassTest.Common
                 if (selectTxtList.Contains(ele.Text) ^ ele.Selected)
                     ele.Click();
             }
-            Thread.Sleep(300);
+//            Thread.Sleep(300);
             return dr;
         }
 
@@ -136,7 +136,7 @@ namespace EduSohoClassTest.Common
             IList<IWebElement> elements = GetIWebElementsBy(dr, by);          
             if (status ^ elements[index].Selected)
                 elements[index].Click();
-            Thread.Sleep(300);
+//            Thread.Sleep(300);
             return dr;
         }
 
@@ -165,21 +165,23 @@ namespace EduSohoClassTest.Common
         public static void confirmDialog(string title, string path, string confirm)
         {
 
-            AutoItX3 autoIt = new AutoItX3();
-            autoIt.WinActivate(title);
-            autoIt.Send(path);
-            Thread.Sleep(1000);
-            autoIt.Send(confirm);
-            Thread.Sleep(1000);
+            //AutoItX3 autoIt = new AutoItX3();
+            //autoIt.WinActivate(title);
+            //autoIt.Send(path);
+            //Thread.Sleep(500);
+            //autoIt.Send(confirm);
+            //Thread.Sleep(500);
+
         }
 
         
 
         public static void clickBlankArea(IWebDriver dr)
         {
-            Actions actions = new Actions(dr);
-            actions.MoveByOffset(0, 0).Click().Build().Perform();
-            Thread.Sleep(300);
+            //Actions actions = new Actions(dr);
+            //actions.MoveByOffset(0, 0).Click().Build().Perform();
+            dr.FindElement(By.XPath("//body")).Click();
+            Thread.Sleep(100);
         }
 
         public static String getAbsoluteXPath(IWebDriver driver,IWebElement element)

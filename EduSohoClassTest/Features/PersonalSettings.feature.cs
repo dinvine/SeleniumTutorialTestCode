@@ -131,15 +131,15 @@ this.ScenarioInitialize(scenarioInfo);
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("should give response to invalid input in personal basic info page")]
+        [NUnit.Framework.DescriptionAttribute("Personal info - Modify my personal info - Validation(use model)")]
         [NUnit.Framework.CategoryAttribute("negative")]
-        public virtual void ShouldGiveResponseToInvalidInputInPersonalBasicInfoPage()
+        public virtual void PersonalInfo_ModifyMyPersonalInfo_ValidationUseModel()
         {
             string[] tagsOfScenario = new string[] {
                     "negative"};
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should give response to invalid input in personal basic info page", null, new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Personal info - Modify my personal info - Validation(use model)", null, new string[] {
                         "negative"});
-#line 19
+#line 20
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -159,70 +159,162 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 20
+#line 21
  testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 21
+#line 22
  testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 22
+#line 23
  testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
                 TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "Name",
+                            "Gender",
+                            "ID",
+                            "Mobile",
+                            "Company",
+                            "Job",
+                            "Title",
+                            "Signature",
+                            "SelfIntro",
+                            "MySpace",
+                            "Weibo",
+                            "Wechat",
+                            "QQ"});
+                table1.AddRow(new string[] {
+                            "adfasdfasdfasdfasdfasdf",
+                            "true",
+                            "asdf",
+                            "asdf",
+                            "OnlineEducation",
+                            "Tester",
+                            "asdfasdfasdfasdf1341234!!#@",
+                            "Hello, World",
+                            "This is test info",
+                            "adf",
+                            "asdf",
+                            "wechat",
+                            "asdf"});
+#line 24
+ testRunner.When("I update my personal info", ((string)(null)), table1, "When ");
+#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "error"});
+                table2.AddRow(new string[] {
+                            "最多只能输入 18 个字符"});
+                table2.AddRow(new string[] {
+                            "请正确输入您的身份证号码"});
+                table2.AddRow(new string[] {
+                            "请输入正确的手机号"});
+                table2.AddRow(new string[] {
+                            "最多只能输入 24 个字符"});
+                table2.AddRow(new string[] {
+                            "地址不正确，须以http://或者https://开头。"});
+                table2.AddRow(new string[] {
+                            "地址不正确，须以http://或者https://开头。"});
+                table2.AddRow(new string[] {
+                            "请输入正确的QQ号"});
+#line 27
+ testRunner.Then("I can see errors below on the page", ((string)(null)), table2, "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("should give response to invalid input in personal basic info page")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void ShouldGiveResponseToInvalidInputInPersonalBasicInfoPage()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "negative"};
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should give response to invalid input in personal basic info page", null, new string[] {
+                        "negative"});
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 39
+ testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 40
+ testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 41
+ testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
                             "fieldName",
                             "inputValue",
                             "msg"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "真实姓名",
                             "a123456789012345678",
                             "最多只能输入 18 个字符"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "身份证号码",
                             "320508198001014880",
                             "请正确输入您的身份证号码"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "手机号码",
                             "29915559844",
                             "请输入正确的手机号"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "公司",
                             "MagicCloud Corp.",
                             ""});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "职业",
                             "Test analyst",
                             ""});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "头衔",
                             "intermediate tester so good a title i like",
                             "最多只能输入 24 个字符"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "个人签名",
                             "good better best",
                             ""});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "自我介绍",
                             "impssible is nothing",
                             ""});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "个人空间",
                             "github.com",
                             "地址不正确，须以http://或者https://开头。"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "微博",
                             "wechat.com",
                             "地址不正确，须以http://或者https://开头。"});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "微信",
                             "dinvvvvv",
                             ""});
-                table1.AddRow(new string[] {
+                table3.AddRow(new string[] {
                             "QQ",
                             "84745aaa",
                             "请输入正确的QQ号"});
-#line 23
+#line 42
  testRunner.Then("msg should be there when inputValue is entered to fieldName as table below in per" +
-                        "sonal basic info page", ((string)(null)), table1, "Then ");
+                        "sonal basic info page", ((string)(null)), table3, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -237,7 +329,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "positive"};
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should be able to modify personal basic info page", null, new string[] {
                         "positive"});
-#line 40
+#line 59
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -257,75 +349,75 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 41
+#line 60
  testRunner.Given("I success to  enter \"test001\" username and \"Test1234\" password to log in", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 42
+#line 61
  testRunner.And("hover on the avatar and click \"个人设置\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 43
+#line 62
  testRunner.And("click on the 基础信息", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table4 = new TechTalk.SpecFlow.Table(new string[] {
                             "fieldName",
                             "inputValue",
                             "msg"});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "真实姓名",
                             "Daniel",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "身份证号码",
                             "320508198001014885",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "手机号码",
                             "19915559844",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "公司",
                             "Lyra Edu\t Corp.",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "职业",
                             "Test analyst",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "头衔",
                             "intermediate tester",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "个人签名",
                             "good better best",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "自我介绍",
                             "impssible is nothing",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "个人空间",
                             "http://github.com",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "微博",
                             "http://weibo.com",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "微信",
                             "dinvvvvv",
                             ""});
-                table2.AddRow(new string[] {
+                table4.AddRow(new string[] {
                             "QQ",
-                            "84745aaa",
+                            "8474596357",
                             ""});
-#line 44
+#line 63
  testRunner.When("msg should be there when inputValue is entered to fieldName as table below in per" +
-                        "sonal basic info page", ((string)(null)), table2, "When ");
+                        "sonal basic info page", ((string)(null)), table4, "When ");
 #line hidden
-#line 58
+#line 77
  testRunner.And("click 保存 in personal basic info page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 59
+#line 78
  testRunner.Then("success message should show \"基础信息保存成功。\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

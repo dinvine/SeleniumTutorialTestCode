@@ -1,6 +1,8 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Interactions;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +19,7 @@ namespace EduSohoClassTest.Common
     }
     public class Browser
     {
-        IWebDriver driver;
+        static IWebDriver driver;
 
         public Browser( string URL, BrowserType browserType = BrowserType.Firefox)
         {
@@ -27,7 +29,9 @@ namespace EduSohoClassTest.Common
                     driver = new ChromeDriver();
                     break;
                 case BrowserType.Firefox:
-                    driver = new FirefoxDriver();
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.AddArguments("--headless");
+                    driver = new FirefoxDriver(options);
                     break;
             }
             driver.Navigate().GoToUrl(URL);
@@ -41,6 +45,8 @@ namespace EduSohoClassTest.Common
                     driver = new ChromeDriver();
                     break;
                 case BrowserType.Firefox:
+                    FirefoxOptions options = new FirefoxOptions();
+                    options.AddArguments("--headless");
                     driver = new FirefoxDriver();
                     break;
             }
@@ -77,5 +83,61 @@ namespace EduSohoClassTest.Common
         {
             driver.Quit();
         }
+
+        public  void WaitForPageToLoad()
+        {
+            TimeSpan timeout = new TimeSpan(0, 0, 30);
+            WebDriverWait wait = new WebDriverWait(driver, timeout);
+
+            IJavaScriptExecutor javascript = driver as IJavaScriptExecutor;
+            if (javascript == null)
+                throw new ArgumentException("driver", "Driver must support javascript execution");
+
+            wait.Until((driver) =>
+            {
+                try
+                {
+                    //Web page is fully loaded
+                    string readyState = javascript.ExecuteScript(
+                    "if (document.readyState) return document.readyState;").ToString();
+                    return readyState.ToLower() == "complete";
+                }
+                catch (InvalidOperationException e)
+                {
+                    //Window is no longer available
+                    return e.Message.ToLower().Contains("unable to get browser");
+                }
+                catch (WebDriverException e)
+                {
+                    //Browser is no longer available
+                    return e.Message.ToLower().Contains("unable to connect");
+                }
+                catch (Exception)
+                {
+                    return false;
+                }
+            });
+        }
+        public  void ScrollTo(IWebElement element)
+        {
+            Actions actions = new Actions(driver);
+            actions.MoveToElement(element);
+            actions.Perform();
+        }
+
+        public  bool HasElement(By by)
+        {
+            try
+            {
+                driver.FindElement(by);
+            }
+            catch (NoSuchElementException)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
     }
 }

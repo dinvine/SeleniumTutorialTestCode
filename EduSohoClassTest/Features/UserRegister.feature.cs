@@ -106,64 +106,64 @@ this.ScenarioInitialize(scenarioInfo);
 #line 8
  testRunner.Given("I am in \"EduSohoRegisterPageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-                TechTalk.SpecFlow.Table table3 = new TechTalk.SpecFlow.Table(new string[] {
+                TechTalk.SpecFlow.Table table7 = new TechTalk.SpecFlow.Table(new string[] {
                             "fieldName",
                             "inputValue",
                             "msg"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "email",
                             "",
                             "请输入邮箱"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "email",
                             "aa",
                             "请输入有效的电子邮件地址"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "email",
                             "aa@",
                             "请输入有效的电子邮件地址"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "email",
                             "aa@cc.",
                             "请输入有效的电子邮件地址"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "email",
                             "aa@cc.cc.",
                             "请输入有效的电子邮件地址"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "username",
                             "",
                             "请输入用户名"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "username",
                             "abc",
                             "字符长度必须大于等于4，一个中文字算2个字符"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "username",
                             "用c",
                             "字符长度必须大于等于4，一个中文字算2个字符"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "password",
                             "",
                             "请输入密码"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "password",
                             "abcd",
                             "最少需要输入 5 个字符"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "captchaCode",
                             "",
                             "请输入验证码"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "captchaCode",
                             "vvvv",
                             "验证码错误"});
-                table3.AddRow(new string[] {
+                table7.AddRow(new string[] {
                             "userterm",
                             "false",
                             "勾选同意此服务协议，才能继续注册"});
 #line 9
- testRunner.Then("inputValue to the fieldName as table and should get msg below the field", ((string)(null)), table3, "Then ");
+ testRunner.Then("inputValue to the fieldName as table and should get msg below the field", ((string)(null)), table7, "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

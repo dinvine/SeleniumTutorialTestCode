@@ -1,9 +1,10 @@
 ﻿using EduSohoClassTest.Common;
+using EduSohoClassTest.Models;
 using EduSohoClassTest.Pages;
+using NUnit.Framework;
 using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using System;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace EduSohoClassTest.Steps
 {
@@ -51,6 +52,24 @@ namespace EduSohoClassTest.Steps
         {
             avatarPage.BasicInfoClick();
             basicInfoPage = new EduSohoPersonalSettingsBasicInfoPage(context);
+        }
+
+
+        [When(@"I update my personal info")]
+        public void WhenIUpdateMyPersonalInfo(Table table)
+        {
+            var tableInfo = table.CreateInstance<PersonalInfo>();
+            basicInfoPage.UpdatePersonalInfo(tableInfo);
+            basicInfoPage.SubmitClick();
+        }
+
+        [Then(@"I can see errors below on the page")]
+        public void ThenICanSeeErrorsBelowOnThePage(Table table)
+        {
+            foreach(var row in table.Rows)
+            {
+                Assert.IsTrue(driver.PageSource.Contains(row[0]));
+            }
         }
 
 

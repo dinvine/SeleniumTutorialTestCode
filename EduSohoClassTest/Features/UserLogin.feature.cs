@@ -126,17 +126,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("should sccuess to login with RememberMe")]
         [NUnit.Framework.CategoryAttribute("auto")]
-        [NUnit.Framework.TestCaseAttribute("test001", "Test1234", null)]
-        public virtual void ShouldSccuessToLoginWithRememberMe(string username, string password, string[] exampleTags)
+        public virtual void ShouldSccuessToLoginWithRememberMe()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "auto"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should sccuess to login with RememberMe", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should sccuess to login with RememberMe", null, new string[] {
+                        "auto"});
 #line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -166,10 +161,16 @@ this.ScenarioInitialize(scenarioInfo);
 #line 21
  testRunner.When("I click remember me checkbox", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
+                TechTalk.SpecFlow.Table table5 = new TechTalk.SpecFlow.Table(new string[] {
+                            "username",
+                            "password"});
+                table5.AddRow(new string[] {
+                            "test001",
+                            "Test1234"});
 #line 22
- testRunner.And(string.Format("I enter \"{0}\" username and \"{1}\" password to login", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I  login with user", ((string)(null)), table5, "And ");
 #line hidden
-#line 23
+#line 25
  testRunner.Then("I can see avatar image on the right top of the home page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -179,17 +180,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("should fail to login with invalid credential")]
         [NUnit.Framework.CategoryAttribute("auto")]
-        [NUnit.Framework.TestCaseAttribute("test001", "invalidPWD", null)]
-        public virtual void ShouldFailToLoginWithInvalidCredential(string username, string password, string[] exampleTags)
+        public virtual void ShouldFailToLoginWithInvalidCredential()
         {
-            string[] @__tags = new string[] {
+            string[] tagsOfScenario = new string[] {
                     "auto"};
-            if ((exampleTags != null))
-            {
-                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
-            }
-            string[] tagsOfScenario = @__tags;
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should fail to login with invalid credential", null, @__tags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should fail to login with invalid credential", null, new string[] {
+                        "auto"});
 #line 29
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -216,11 +212,17 @@ this.ScenarioInitialize(scenarioInfo);
 #line 31
  testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
+                TechTalk.SpecFlow.Table table6 = new TechTalk.SpecFlow.Table(new string[] {
+                            "username",
+                            "password"});
+                table6.AddRow(new string[] {
+                            "test001",
+                            "invalidPWD"});
 #line 32
- testRunner.When(string.Format("I enter \"{0}\" username and \"{1}\" password to login", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I  login with user", ((string)(null)), table6, "When ");
 #line hidden
-#line 33
- testRunner.Then("I can see \"用户名或密码错误\" on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 36
+ testRunner.Then("I can see \"用户名或密码错误\" on the page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -236,7 +238,7 @@ this.ScenarioInitialize(scenarioInfo);
         {
             string[] tagsOfScenario = exampleTags;
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("should give correct message for invalid email entered in pwd reset page", null, exampleTags);
-#line 38
+#line 39
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -256,22 +258,16 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 39
- testRunner.Given("I am in \"EduSohoHomePageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
 #line 40
- testRunner.And("I click login buton and jump to login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("I am in \"EduSohoRetrievePWDPageURL\" page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 41
- testRunner.And("click 找回密码 link", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 42
  testRunner.When(string.Format("enter \"{0}\"emailForPWDReset", emailForPWDReset), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 43
+#line 42
  testRunner.And("click 重设密码", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 44
+#line 43
  testRunner.Then(string.Format("there should be \"{0}\"msg shown on  \"{1}\" fieldName in password reset page", msg, fieldName), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }

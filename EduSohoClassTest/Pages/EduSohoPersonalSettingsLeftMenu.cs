@@ -1,11 +1,5 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Support.UI;
-using System;   
 using TechTalk.SpecFlow;
-using AutoItX3Lib;
-using System.Threading;
-using NUnit.Framework;
-using OpenQA.Selenium.Interactions;
 using EduSohoClassTest.Common;
 
 namespace EduSohoClassTest.Pages

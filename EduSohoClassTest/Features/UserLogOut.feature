@@ -11,3 +11,13 @@ Scenario: Success to log out
 	Examples: 
 	| username | password |
 	| test001  | Test1234 |
+
+
+
+	#Scenario: I can log out as a student
+	#Given I am on login page
+	#And I login with user
+	#| name    | password |
+	#| test001 | Test1234 |
+	#When I logout
+	#Then I see login page

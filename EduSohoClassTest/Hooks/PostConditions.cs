@@ -7,19 +7,19 @@ namespace EduSohoClassTest.Steps
     [Binding]
     public sealed class PostConditions
     {
-        IWebDriver driver;
+        //IWebDriver driver;
 
-        PostConditions(ScenarioContext scenarioContext)
-        {
-            if (scenarioContext.ContainsKey("webdriver"))
-                driver = (IWebDriver)scenarioContext["webdriver"];          
+        //PostConditions(ScenarioContext scenarioContext)
+        //{
+        //    if (scenarioContext.ContainsKey("webdriver"))
+        //        driver = (IWebDriver)scenarioContext["webdriver"];          
 
-        }
+        //}
 
-        [AfterScenario()]
-        public void ScenarioTearDown()
-        {
-           driver.Quit();
-        }
+        //[AfterScenario()]
+        //public void ScenarioTearDown()
+        //{
+        //   driver.Quit();
+        //}
     }
 }

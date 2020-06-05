@@ -1,9 +1,12 @@
 ﻿
 using EduSohoClassTest.Common;
+using EduSohoClassTest.Models;
 using EduSohoClassTest.Pages;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
+using System.Collections.Generic;
 using TechTalk.SpecFlow;
+using TechTalk.SpecFlow.Assist;
 
 namespace EduSohoClassTest.Steps
 {
@@ -53,6 +56,14 @@ namespace EduSohoClassTest.Steps
             homePage = new EduSohoHomePage(context);
         }
 
+        [When(@"I  login with user")]
+        public void WhenILoginWithUser(Table table)
+        {
+            var user = table.CreateInstance<UserLogin>();
+            loginPage.Login(user.username, user.password);
+        }
+
+
         [Then(@"I can click the 更多课程 and jump to course page")]
         public void ThenICanClickThe更多课程AndJumpToCoursePage()
         {
@@ -96,12 +107,16 @@ namespace EduSohoClassTest.Steps
         [When(@"enter ""(.*)""emailForPWDReset")]
         public void WhenEnterEmailForPWDReset(string p0)
         {
+            if(pwdResetPage==null)
+                pwdResetPage = new EduSohoPWDRestPage(context);
             pwdResetPage.EmailEnter(p0);
         }
 
         [When(@"click 重设密码")]
         public void WhenClickPWDResetOnPWDResetPage()
         {
+            if (pwdResetPage == null)
+                pwdResetPage = new EduSohoPWDRestPage(context);
             pwdResetPage.PWDRestClick();
         }
 

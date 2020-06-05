@@ -1,0 +1,1792 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Extent Framework</title>
+  <link rel="apple-touch-icon" href="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png">
+  <link rel="shortcut icon" href="https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png">
+  <link href="https://cdn.rawgit.com/extent-framework/extent-github-cdn/cd00a5e/spark/css/style.css" rel="stylesheet" />
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style> </style>
+</head>
+<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/7cc78ce/spark/js/jsontree.js"></script>
+
+
+
+<body class="test-view bdd-report standard">
+    <div class="app header-dark side-nav-folded">
+        <div class="layout">
+            <div class="header navbar">
+    <div class="header-container">
+        <div class="nav-logo">
+          <a href="index.html">
+            <div class="logo logo-dark" style="background-image: url('https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png')"></div>
+            <div class="logo logo-white" style="background-image: url('https://cdn.rawgit.com/extent-framework/extent-github-cdn/d74480e/commons/img/logo.png')"></div>
+          </a>
+        </div>
+        <ul class="nav-left">
+          <li>
+            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+              <i class="fa fa-bars"></i>
+            </a>
+            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+              <i class="fa fa-bars"></i>
+            </a>
+          </li>
+          <li class="search-box">
+            <a class="search-toggle" href="javascript:void(0);">
+              <i class="search-icon fa fa-search"></i>
+              <i class="search-icon-close fa fa-close"></i>
+            </a>
+          </li>
+          <li class="search-input">
+            <input id="search-tests" class="form-control" type="text" placeholder="Type to search...">
+          </li>
+        </ul>
+        <ul class="nav-right">
+          <li class="m-r-10">
+            <a href="#">
+              <span class="badge badge-primary">Extent Framework</span>
+            </a>
+          </li>
+            <li class="m-r-10">
+                <a href="#">
+                    <span class="badge badge-primary">3/11/2020 2:50:32 PM</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+            <div class="side-nav side-nav-folded">
+  <div class="side-nav-inner">
+    <ul class="side-nav-menu scrollable">
+      <li class="nav-item dropdown">
+        <a id="nav-test" class="dropdown-toggle" href="index.html">
+          <span class="icon-holder">
+            <i class="fa fa-align-left"></i>
+          </span>
+          <span class="title">Tests</span>
+        </a>
+      </li>
+            <li class="nav-item dropdown">
+        <a id="nav-dashboard" class="dropdown-toggle" href="dashboard.html">
+          <span class="icon-holder">
+            <i class="fa fa-bar-chart"></i>
+          </span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="side-nav-controls">
+    <ul>
+      <li>
+        <a href="#" class="lightsout" style="color:#8a8a8a;">
+          <i class="fa fa-desktop"></i>"</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+            <div class="page-container">
+                <div class="main-content">
+                    <div class="test-wrapper row">
+                        <div class="test-list">
+                            <div class="test-list-tools">
+                                <ul class="tools pull-left">
+                                    <li>
+                                        <a href="">
+                                            <span class="font-size-14">Tests</span>
+                                        </a>
+                                    </li> 
+                                </ul>
+                                <ul class="tools text-right">
+									<li class="user-profile dropdown dropdown-animated scale-left">
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+											<i class="fa fa-exclamation-circle"></i>
+										</a>
+										<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a status="pass" class="dropdown-item" href="#"><span>Pass</span><span class="status success pull-right"></span></a>											<a status="fail" class="dropdown-item" href="#"><span>Fail</span><span class="status danger pull-right"></span></a>																																																							<div class="dropdown-divider"></div>
+											<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+										</ul>
+									</li>
+																		                                </ul>
+                            </div>
+                            <div class="test-list-wrapper scrollable">
+                                <ul class="test-list-item">
+										<li class="test-item" status="fail" author="" device="" tag=""> 
+											<div class="status-avatar fail-bg">
+												<i class="fa fa-times text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">AdminArticleManage</p> 
+													<p class="duration text-sm">0h:4m:25s+692ms</p> 
+													<span class="datetime">14:50:32 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-fail">AdminArticleManage</h5>
+															<span class='badge badge-success'>3/11/2020 2:50:32 PM</span>
+															<span class='badge badge-danger'>3/11/2020 2:54:58 PM</span>
+															<span class='badge badge-default'>0h:4m:25s+692ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to add a category to articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click linktext "栏目管理"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I delete the article category coded "environment01"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 添加栏目 button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>enter "nz env"," environment01","EduSoho","good for all","env","new zealand env reports","是" to the article category add page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 添加 on  article category add page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>new "environment01" caterory code should be found in the article category page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to modify the name of article category</div>
+				<div class="status-avatar float-left fail-bg">
+					<i class="fa fa-times text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click linktext "栏目管理"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I modify the "nz env" category name to "DanielWriteDate" new one</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon fail-bg">
+									<i class="fa fa-times text-white"></i>
+								</span>
+								<span>"DanielWriteDate" new category name should be found in the article category page</span>
+							</div>
+			<div class="details">The element reference of <li id="5" class="tr"> is stale; either the element is no longer attached to the DOM, it is not in the current frame context, or the document has been refreshed</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to modify the Publish Status of articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I  select "取消发布" action  to the first  "已发布" publish value record and click the right checkbox</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>the 状态 colname of the checked record should change to "未发布" value</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to modify the Publish Status of articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I  select "发布" action  to the first  "未发布" publish value record and click the right checkbox</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>the 状态 colname of the checked record should change to "已发布" value</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "行业资讯", "", "", "" to the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>results table should comform to the  "行业资讯", "", "", "" conditions.</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "行业资讯", "MOOC", "", "" to the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>results table should comform to the  "行业资讯", "MOOC", "", "" conditions.</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "行业资讯", "MOOC", "", "" to the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>results table should comform to the  "行业资讯", "MOOC", "", "" conditions.</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "行业资讯", "MOOC", "头条", "" to the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>results table should comform to the  "行业资讯", "MOOC", "头", "" conditions.</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search articles</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in admin article page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "行业资讯", "MOOC", "头条", "已发布" to the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>results table should comform to the  "行业资讯", "MOOC", "头", "已发布" conditions.</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="pass" author="" device="" tag=""> 
+											<div class="status-avatar pass-bg">
+												<i class="fa fa-check text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">AdminOrderManage</p> 
+													<p class="duration text-sm">0h:4m:47s+535ms</p> 
+													<span class="datetime">14:54:59 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-pass">AdminOrderManage</h5>
+															<span class='badge badge-success'>3/11/2020 2:54:59 PM</span>
+															<span class='badge badge-danger'>3/11/2020 2:59:47 PM</span>
+															<span class='badge badge-default'>0h:4m:47s+535ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search class order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "班级订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "2017-12-12 22:15", "2020-12-12 22:15", "订单状态", "支付方式", "班级编号", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 1 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search class order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "班级订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "已付款", "支付方式", "班级编号", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 5 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search class order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "班级订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付宝", "班级编号", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 暂无订单记录 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search class order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "班级订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付方式", "订单号", "CR2015063016591966296" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 1 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search class order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "班级订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付方式", "班级编号", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 5 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search course order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "课程订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "2017-12-12 22:15", "2020-12-12 22:15", "订单状态", "支付方式", "课程名称", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 12 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search course order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "课程订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "已付款", "支付方式", "课程名称", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 58 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search course order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "课程订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付宝", "课程名称", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 暂无订单记录 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search course order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "课程订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付方式", "课程名称", "EduSoHo" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 19 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Should be able to search course order</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "admin" username and "5EstafeyEtre" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "管理后台"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click 订单 in admin  order manage page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I select "课程订单"订单类型 in the left menue</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "", "", "订单状态", "支付方式", "课程名称", "" into the conditions</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click search button</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be 58 search results</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="pass" author="" device="" tag=""> 
+											<div class="status-avatar pass-bg">
+												<i class="fa fa-check text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">EduSoho LogOut</p> 
+													<p class="duration text-sm">0h:0m:17s+242ms</p> 
+													<span class="datetime">14:59:48 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-pass">EduSoho LogOut</h5>
+															<span class='badge badge-success'>3/11/2020 2:59:48 PM</span>
+															<span class='badge badge-danger'>3/11/2020 3:00:05 PM</span>
+															<span class='badge badge-default'>0h:0m:17s+242ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Success to log out</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "test001" username and "Test1234" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click 退出登陆</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I should success to logout of the web</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="pass" author="" device="" tag=""> 
+											<div class="status-avatar pass-bg">
+												<i class="fa fa-check text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">EduSoho User Login</p> 
+													<p class="duration text-sm">0h:1m:49s+426ms</p> 
+													<span class="datetime">15:00:07 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-pass">EduSoho User Login</h5>
+															<span class='badge badge-success'>3/11/2020 3:00:07 PM</span>
+															<span class='badge badge-danger'>3/11/2020 3:01:56 PM</span>
+															<span class='badge badge-default'>0h:1m:49s+426ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should fail to login with invalid credential</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoHomePageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click login buton and jump to login page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I  login with user</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I can see "用户名或密码错误" on the page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give correct message for invalid email entered in pwd reset page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoRetrievePWDPageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>enter "aa.com"emailForPWDReset</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 重设密码</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be "请输入有效的电子邮件地址"msg shown on  "invalid" fieldName in password reset page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give correct message for invalid email entered in pwd reset page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoRetrievePWDPageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>enter "aa@bb"emailForPWDReset</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 重设密码</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be "该邮箱地址没有注册过帐号"msg shown on  "unexisting" fieldName in password reset page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give correct message for invalid email entered in pwd reset page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoRetrievePWDPageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>enter "aa@bb.bb."emailForPWDReset</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 重设密码</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be "请输入有效的电子邮件地址"msg shown on  "invalid" fieldName in password reset page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give correct message for invalid email entered in pwd reset page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoRetrievePWDPageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>enter "aa@aa.com"emailForPWDReset</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 重设密码</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>there should be "该邮箱地址没有注册过帐号"msg shown on  "unexisting" fieldName in password reset page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should sccuess to login without RememberMe</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoHomePageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click login buton and jump to login page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I enter "test001" username and "Test1234" password to login</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I can see avatar image on the right top of the home page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should sccuess to login with RememberMe</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoHomePageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click login buton and jump to login page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I click remember me checkbox</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I  login with user</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I can see avatar image on the right top of the home page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="fail" author="" device="" tag=""> 
+											<div class="status-avatar fail-bg">
+												<i class="fa fa-times text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">PersonalSettings</p> 
+													<p class="duration text-sm">0h:1m:35s+878ms</p> 
+													<span class="datetime">15:01:57 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-fail">PersonalSettings</h5>
+															<span class='badge badge-success'>3/11/2020 3:01:57 PM</span>
+															<span class='badge badge-danger'>3/11/2020 3:03:33 PM</span>
+															<span class='badge badge-default'>0h:1m:35s+878ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Personal info - Modify my personal info - Validation(use model)</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "test001" username and "Test1234" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "个人设置"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click on the 基础信息</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I update my personal info</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I can see errors below on the page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should be able to modify personal basic info page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "test001" username and "Test1234" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "个人设置"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click on the 基础信息</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>msg should be there when inputValue is entered to fieldName as table below in personal basic info page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 保存 in personal basic info page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>success message should show "基础信息保存成功。"</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give response to invalid input in personal basic info page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "test001" username and "Test1234" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "个人设置"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click on the 基础信息</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>msg should be there when inputValue is entered to fieldName as table below in personal basic info page</span>
+							</div>
+					</div>
+				</div>
+	</div>
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">Upload image for avatar</div>
+				<div class="status-avatar float-left fail-bg">
+					<i class="fa fa-times text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I success to  enter "test001" username and "Test1234" password to log in</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>hover on the avatar and click "个人设置"</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click on the 头像设置</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>click 上传新头像</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start when" title="">
+								<span class="alert-icon fail-bg">
+									<i class="fa fa-times text-white"></i>
+								</span>
+								<span>select image file and upload it</span>
+							</div>
+			<div class="details">Timed out after 5 seconds</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+										<li class="test-item" status="pass" author="" device="" tag=""> 
+											<div class="status-avatar pass-bg">
+												<i class="fa fa-check text-white"></i>
+											</div>
+											<div class="open-test">
+												<div class="test-detail"> 
+													<p class="name">UserRegister</p> 
+													<p class="duration text-sm">0h:0m:14s+937ms</p> 
+													<span class="datetime">15:03:35 PM</span>
+												</div>
+											</div>
+											<div class="test-contents d-none">
+												<div class="detail-head">
+													<div class="p-v-10 d-inline-block">	
+														<div class="info">
+															<h5 class="test-status text-pass">UserRegister</h5>
+															<span class='badge badge-success'>3/11/2020 3:03:35 PM</span>
+															<span class='badge badge-danger'>3/11/2020 3:03:50 PM</span>
+															<span class='badge badge-default'>0h:0m:14s+937ms</span>
+														</div>
+																											</div>
+												</div>
+
+<div class="accordion mt-4">
+	<div class="card">
+		<div class="card-header" role="tab">
+			<h5 class="card-title pl-3">
+				<div class="node">should give correct message for invalid info entered in register page</div>
+				<div class="status-avatar float-left pass-bg">
+					<i class="fa fa-check text-white"></i>
+				</div>
+			</h5>
+		</div>
+				<div class="collapse">
+					<div class="card-body">
+							<div class="d-flex align-items-center justify-content-start given" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>I am in "EduSohoRegisterPageURL" page</span>
+							</div>
+							<div class="d-flex align-items-center justify-content-start then" title="">
+								<span class="alert-icon pass-bg">
+									<i class="fa fa-check text-white"></i>
+								</span>
+								<span>inputValue to the fieldName as table and should get msg below the field</span>
+							</div>
+					</div>
+				</div>
+	</div>
+</div>
+											</div>
+										</li>
+                                </ul>    
+                            </div>
+                        </div>
+                        <div class="test-content scrollable">
+                            <div class="test-content-tools">
+                                <ul>
+                                    <li>
+                                        <a class="back-to-test" href="javascript:void(0)">
+                                            <i class="fa fa-arrow-left"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="test-content-detail">
+                                <div class="detail-body"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<script type='text/javascript'>
+	
+</script>
+<script src="https://cdn.rawgit.com/extent-framework/extent-github-cdn/f97b667/spark/js/script.js"></script>
+
+</body>
+
+</html>

@@ -15,6 +15,25 @@ Scenario: Upload image for avatar
 	| username | password |
 	| test001  | Test1234 |
 
+
+	@negative
+Scenario: Personal info - Modify my personal info - Validation(use model)
+	Given I success to  enter "test001" username and "Test1234" password to log in
+	And hover on the avatar and click "个人设置"
+	And click on the 基础信息
+	When I update my personal info
+	| Name                    | Gender | ID   | Mobile | Company         | Job    | Title                       | Signature    | SelfIntro         | MySpace | Weibo | Wechat | QQ   |
+	| adfasdfasdfasdfasdfasdf | true   | asdf | asdf   | OnlineEducation | Tester | asdfasdfasdfasdf1341234!!#@ | Hello, World | This is test info | adf     | asdf  | wechat | asdf |	
+	Then I can see errors below on the page
+	 | error                        |
+	 | 最多只能输入 18 个字符                |
+	 | 请正确输入您的身份证号码                 |
+	 | 请输入正确的手机号                    |
+	 | 最多只能输入 24 个字符                |
+	 | 地址不正确，须以http://或者https://开头。 |
+	 | 地址不正确，须以http://或者https://开头。 |
+	 | 请输入正确的QQ号                    |
+
 @negative
 Scenario: should give response to invalid input in personal basic info page
 	Given I success to  enter "test001" username and "Test1234" password to log in
@@ -54,6 +73,6 @@ Scenario: should be able to modify personal basic info page
 	| 个人空间		| http://github.com		|		|
 	| 微博			|   http://weibo.com	|		|
 	| 微信			| dinvvvvv				|		|
-	| QQ			|   84745aaa			|		|
+	| QQ			|   8474596357			|		|
 	And click 保存 in personal basic info page
 	Then success message should show "基础信息保存成功。"

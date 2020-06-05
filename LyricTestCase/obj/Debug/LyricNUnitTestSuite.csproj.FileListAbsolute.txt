@@ -129,7 +129,7 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\Utf8J
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\bin\Debug\WebDriver.Support.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricNUnitTestSuite.csprojAssemblyReference.cache
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricNUnitTestSuite.csproj.CoreCompileInputs.cache
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricNUnitTestSuite.csproj.CopyComplete
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricTestCase.dll
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricTestCase.pdb
+D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\LyricTestCase\obj\Debug\LyricNUnitTestSuite.csproj.CoreCompileInputs.cache

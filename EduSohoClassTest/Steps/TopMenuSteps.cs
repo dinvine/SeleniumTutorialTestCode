@@ -1,9 +1,4 @@
-﻿using EduSohoClassTest.Common;
-using EduSohoClassTest.Pages;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.Support.UI;
-using System;
+﻿using EduSohoClassTest.Pages;
 using TechTalk.SpecFlow;
 
 namespace EduSohoClassTest.Steps

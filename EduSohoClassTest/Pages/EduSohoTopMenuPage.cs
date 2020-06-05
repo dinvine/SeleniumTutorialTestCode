@@ -28,7 +28,9 @@ namespace EduSohoClassTest.Pages
 
         public EduSohoTopMenuPage(ScenarioContext scenarioContext):base(scenarioContext)
         {
+           // webDriver.Url = Helps.GetConfigurationValue("TopMenu");
         }
+
         public void LogOut()
         {
             HoverOnAvatar();
@@ -50,6 +52,7 @@ namespace EduSohoClassTest.Pages
         public IWebDriver GotoPersonalManage(string menuName)
         {
             HoverOnAvatar();
+            Thread.Sleep(500);
             Helps.ClickOperation(webDriver, By.LinkText(menuName));
             context["webdriver"] = webDriver;
             return webDriver;

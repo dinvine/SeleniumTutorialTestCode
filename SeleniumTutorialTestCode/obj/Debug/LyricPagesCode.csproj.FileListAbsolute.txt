@@ -13,8 +13,8 @@ D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\nunit.framework.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\WebDriver.xml
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\bin\Debug\WebDriver.Support.xml
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csproj.CoreCompileInputs.cache
+D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csprojAssemblyReference.cache
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csproj.CopyComplete
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\SeleniumTutorialTestCode.exe
 D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\SeleniumTutorialTestCode.pdb
-D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csprojAssemblyReference.cache
+D:\workroom\CodeHouse\GIT\SeleniumTutorialTestCode\SeleniumTutorialTestCode\obj\Debug\LyricPagesCode.csproj.CoreCompileInputs.cache

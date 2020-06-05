@@ -2,7 +2,7 @@
 using OpenQA.Selenium.Support.UI;
 using System;   
 using TechTalk.SpecFlow;
-using AutoItX3Lib;
+//using AutoItX3Lib;
 using System.Threading;
 using NUnit.Framework;
 using OpenQA.Selenium.Interactions;

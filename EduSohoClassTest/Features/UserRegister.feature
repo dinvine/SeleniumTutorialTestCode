@@ -11,7 +11,7 @@ Scenario: should give correct message for invalid info entered in register page
 | email       |            | 请输入邮箱                  |
 | email       | aa         | 请输入有效的电子邮件地址           |
 | email       | aa@        | 请输入有效的电子邮件地址           |
-#| email       | aa@defgh   | 请输入有效的电子邮件地址           |
+#| email      | aa@defgh   | 请输入有效的电子邮件地址           |
 | email       | aa@cc.     | 请输入有效的电子邮件地址           |
 | email       | aa@cc.cc.  | 请输入有效的电子邮件地址           |
 | username    |            | 请输入用户名                 |
